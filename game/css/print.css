@@ -1,0 +1,33 @@
+/* Print / save-as-PDF: force the readable version, drop the game chrome. */
+@page { margin: 14mm 12mm; }
+
+html, body { height: auto; background: #fff; color: #111; }
+
+#game, .skip, .webgl-note, .page-actions, .dpad, .toasts { display: none !important; }
+
+.page {
+  display: block !important;
+  width: auto; margin: 0; padding: 0;
+  font-size: 10.5pt; line-height: 1.45;
+}
+
+.page-head { padding: 0 0 8pt; }
+.page-head h1 { font-size: 21pt; margin: 0 0 4pt; }
+.page-head .lede { font-size: 11pt; color: #333; }
+.eyebrow { color: #333; letter-spacing: .1em; }
+
+.page-sec { border-top: .5pt solid #bbb; padding: 9pt 0 10pt; page-break-inside: avoid; break-inside: avoid; }
+.page-sec h2 { font-size: 13pt; }
+.page-sec .meta { color: #333; font-size: 9.5pt; }
+.page-sec .body, .points li { color: #222; font-size: 10pt; }
+.points { gap: 3pt; }
+.points li::before { background: #666; }
+
+.contact-link { background: #fff; border: .5pt solid #999; color: #111; box-shadow: none; }
+.chip { background: #fff; border: .5pt solid #999; color: #111; font-size: 9pt; }
+.chip-badge { background: #fff; }
+.skill-card, .stat { background: #fff; border: .5pt solid #bbb; box-shadow: none; }
+.skill-grid { gap: 6pt; }
+.stat-row { gap: 6pt; }
+.page-foot { border-top: .5pt solid #bbb; color: #444; font-size: 9pt; }
+h1, h2, h3 { page-break-after: avoid; break-after: avoid; }

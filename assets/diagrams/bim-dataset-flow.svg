@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 560" width="1600" height="560" role="img"
+     font-family="Segoe UI, Helvetica, Arial, sans-serif" aria-label="Dataset pipeline: recorded sign videos are decoded with OpenCV, converted to 1,662 MediaPipe Holistic keypoints per frame, normalised around the shoulder midpoint, stored as npy sequence files, then trained and tested by isolated scripts.">
+  <defs>
+    <marker id="ah5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#b4530d"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="560" fill="#ffffff"/>
+  <text x="40" y="52" font-family="IBM Plex Mono, Consolas, monospace" font-size="21" letter-spacing="4" fill="#b4530d">BIM LANDMARK DATASET — VIDEO TO TRAINING TENSOR</text>
+
+  <g transform="translate(40 110)">
+    <rect width="250" height="100" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="18" y="36" font-size="19" font-weight="600" fill="#151a22">Sign videos</text>
+    <text x="18" y="62" font-size="15" fill="#495464">117 classes recorded</text>
+    <text x="18" y="86" font-size="15" fill="#495464">segmented per sign</text>
+  </g>
+  <path d="M290 160 H340" stroke="#b4530d" stroke-width="3" marker-end="url(#ah5)"/>
+  <g transform="translate(350 110)">
+    <rect width="250" height="100" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="18" y="36" font-size="19" font-weight="600" fill="#151a22">OpenCV decode</text>
+    <text x="18" y="62" font-size="15" fill="#495464">frame extraction</text>
+    <text x="18" y="86" font-size="15" fill="#495464">resize · BGR→RGB</text>
+  </g>
+  <path d="M600 160 H650" stroke="#b4530d" stroke-width="3" marker-end="url(#ah5)"/>
+  <g transform="translate(660 110)">
+    <rect width="270" height="100" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="18" y="36" font-size="19" font-weight="600" fill="#151a22">MediaPipe Holistic</text>
+    <text x="18" y="62" font-size="15" fill="#495464">pose 132 · face 1,404</text>
+    <text x="18" y="86" font-size="15" fill="#495464">hands 63 + 63 = 1,662</text>
+  </g>
+  <path d="M930 160 H980" stroke="#b4530d" stroke-width="3" marker-end="url(#ah5)"/>
+  <g transform="translate(990 110)">
+    <rect width="290" height="100" rx="10" fill="#fffaf3" stroke="#b4530d" stroke-width="3"/>
+    <text x="18" y="36" font-size="19" font-weight="600" fill="#151a22">Normalise</text>
+    <text x="18" y="62" font-size="15" fill="#495464">mid = (shL + shR) / 2</text>
+    <text x="18" y="86" font-size="15" fill="#495464">scale = ‖nose − mid‖</text>
+  </g>
+  <path d="M1280 160 H1330" stroke="#b4530d" stroke-width="3" marker-end="url(#ah5)"/>
+  <g transform="translate(1340 110)">
+    <rect width="220" height="100" rx="10" fill="#2b3a52"/>
+    <text x="18" y="36" font-size="19" font-weight="600" fill="#fff">.npy store</text>
+    <text x="18" y="62" font-size="15" fill="#a9bccc">15,258 sequences</text>
+    <text x="18" y="86" font-size="15" fill="#a9bccc">fixed frame window</text>
+  </g>
+
+  <!-- isolation box -->
+  <g transform="translate(40 300)">
+    <rect width="1520" height="180" rx="14" fill="#f4f7fb" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="24" y="40" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" letter-spacing="3" fill="#77828f">ISOLATED TRAINING PATH — LEGACY DATASETS ARE NEVER MERGED IN</text>
+    <g transform="translate(24 62)">
+      <rect width="330" height="90" rx="10" fill="#fff" stroke="#c3ccd9"/>
+      <text x="18" y="34" font-size="18" font-weight="600" fill="#151a22">train_normalized_lstm.py</text>
+      <text x="18" y="60" font-size="15" fill="#495464">Conv1D + BiLSTM over sequences</text>
+      <text x="18" y="82" font-size="15" fill="#495464">own label encoder output</text>
+    </g>
+    <path d="M354 107 H404" stroke="#b4530d" stroke-width="3" marker-end="url(#ah5)"/>
+    <g transform="translate(410 62)">
+      <rect width="280" height="90" rx="10" fill="#fff" stroke="#c3ccd9"/>
+      <text x="18" y="34" font-size="18" font-weight="600" fill="#151a22">models/*.keras</text>
+      <text x="18" y="60" font-size="15" fill="#495464">bim_normalized_lstm</text>
+      <text x="18" y="82" font-size="15" fill="#495464">normalized_label_encoder.pkl</text>
+    </g>
+    <path d="M690 107 H740" stroke="#b4530d" stroke-width="3" marker-end="url(#ah5)"/>
+    <g transform="translate(746 62)">
+      <rect width="300" height="90" rx="10" fill="#eaf3da" stroke="#4b6b13" stroke-width="2"/>
+      <text x="18" y="34" font-size="18" font-weight="600" fill="#33490d">test_normalized_model.py</text>
+      <text x="18" y="60" font-size="15" fill="#4b6b13">scored on unseen sequences</text>
+      <text x="18" y="82" font-size="15" fill="#4b6b13">not on training samples</text>
+    </g>
+    <path d="M1046 107 H1096" stroke="#b4530d" stroke-width="3" marker-end="url(#ah5)"/>
+    <g transform="translate(1102 62)">
+      <rect width="390" height="90" rx="10" fill="#fff" stroke="#c3ccd9"/>
+      <text x="18" y="34" font-size="18" font-weight="600" fill="#151a22">Served by the FastAPI backend</text>
+      <text x="18" y="60" font-size="15" fill="#495464">mode=normalized · 117 classes returned</text>
+      <text x="18" y="82" font-size="15" fill="#495464">one retrain command from the repo root</text>
+    </g>
+  </g>
+  <text x="40" y="530" font-size="16" fill="#77828f">Normalisation is the step that made results comparable: the same sign recorded from a different distance produces the same feature vector.</text>
+</svg>

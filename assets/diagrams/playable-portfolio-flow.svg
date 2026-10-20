@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" role="img"
+     font-family="Segoe UI, Helvetica, Arial, sans-serif" aria-label="Module map of the playable portfolio: a data file feeds the world builder, avatar and camera, input and HUD, all driven by the game loop, with a page renderer as the no-WebGL fallback.">
+  <defs>
+    <marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#b4530d"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="700" fill="#ffffff"/>
+  <text x="40" y="52" font-family="IBM Plex Mono, Consolas, monospace" font-size="21" letter-spacing="4" fill="#b4530d">PLAYABLE PORTFOLIO — MODULE MAP</text>
+  <text x="40" y="82" font-size="18" fill="#77828f">Seven plain scripts, one vendored three.js build, no bundler.</text>
+
+  <!-- data -->
+  <g transform="translate(60 140)">
+    <rect width="300" height="150" rx="12" fill="#fdf0e0" stroke="#b4530d" stroke-width="3"/>
+    <text x="22" y="42" font-family="IBM Plex Mono, Consolas, monospace" font-size="16" letter-spacing="2" fill="#8a3d05">SOURCE OF TRUTH</text>
+    <text x="22" y="78" font-size="21" font-weight="700" fill="#151a22">data.js</text>
+    <text x="22" y="106" font-size="16" fill="#495464">profile · 7 stops · unlocks</text>
+    <text x="22" y="130" font-size="16" fill="#495464">selfCheck() validates layout</text>
+  </g>
+
+  <path d="M360 200 H440" stroke="#b4530d" stroke-width="3" marker-end="url(#ah4)"/>
+
+  <!-- scene layer -->
+  <g transform="translate(450 110)">
+    <rect width="480" height="420" rx="14" fill="#f4f7fb" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="24" y="42" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" letter-spacing="3" fill="#77828f">SCENE LAYER · three.js</text>
+    <g transform="translate(24 66)">
+      <rect width="430" height="70" rx="8" fill="#fff" stroke="#c3ccd9"/>
+      <text x="16" y="30" font-size="19" font-weight="600" fill="#151a22">world.js</text>
+      <text x="16" y="54" font-size="15" fill="#495464">ground, lighting, beacons, props</text>
+    </g>
+    <g transform="translate(24 148)">
+      <rect width="430" height="70" rx="8" fill="#fff" stroke="#c3ccd9"/>
+      <text x="16" y="30" font-size="19" font-weight="600" fill="#151a22">avatar.js</text>
+      <text x="16" y="54" font-size="15" fill="#495464">box-built figure, two-bone walk cycle</text>
+    </g>
+    <g transform="translate(24 230)">
+      <rect width="430" height="70" rx="8" fill="#fff" stroke="#c3ccd9"/>
+      <text x="16" y="30" font-size="19" font-weight="600" fill="#151a22">camera.js</text>
+      <text x="16" y="54" font-size="15" fill="#495464">damped follow, radius clamp, beacon lock</text>
+    </g>
+    <g transform="translate(24 312)">
+      <rect width="430" height="70" rx="8" fill="#fff" stroke="#c3ccd9"/>
+      <text x="16" y="30" font-size="19" font-weight="600" fill="#151a22">input.js</text>
+      <text x="16" y="54" font-size="15" fill="#495464">keys + pointer + D-pad → one intent vector</text>
+    </g>
+  </g>
+
+  <path d="M930 320 H1010" stroke="#b4530d" stroke-width="3" marker-end="url(#ah4)"/>
+
+  <!-- loop -->
+  <g transform="translate(1020 150)">
+    <rect width="320" height="180" rx="12" fill="#2b3a52"/>
+    <text x="22" y="42" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" letter-spacing="3" fill="#f59e0b">FRAME LOOP</text>
+    <text x="22" y="78" font-size="21" font-weight="700" fill="#fff">game.js</text>
+    <text x="22" y="106" font-size="16" fill="#a9bccc">proximity checks · XP · levels</text>
+    <text x="22" y="130" font-size="16" fill="#a9bccc">tour mode · save state · mode switch</text>
+    <text x="22" y="154" font-size="16" fill="#a9bccc">WebGL probe on boot</text>
+  </g>
+  <path d="M1180 330 V400" stroke="#405473" stroke-width="2.5" fill="none" marker-end="url(#ah4)"/>
+  <g transform="translate(1020 410)">
+    <rect width="320" height="120" rx="12" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="22" y="38" font-size="20" font-weight="600" fill="#151a22">hud.js</text>
+    <text x="22" y="66" font-size="16" fill="#495464">XP bar · inventory · toasts</text>
+    <text x="22" y="92" font-size="16" fill="#495464">checkpoint card content</text>
+  </g>
+
+  <!-- fallback -->
+  <path d="M1180 150 V110 H420" stroke="#405473" stroke-width="2.5" stroke-dasharray="8 7" fill="none"/>
+  <g transform="translate(60 400)">
+    <rect width="300" height="180" rx="12" fill="#eaf3da" stroke="#4b6b13" stroke-width="2"/>
+    <text x="22" y="42" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" letter-spacing="3" fill="#4b6b13">FALLBACK</text>
+    <text x="22" y="78" font-size="21" font-weight="700" fill="#151a22">page.js</text>
+    <text x="22" y="106" font-size="16" fill="#495464">same data.js rendered as</text>
+    <text x="22" y="130" font-size="16" fill="#495464">an accessible document</text>
+    <text x="22" y="158" font-size="16" fill="#495464">+ print stylesheet</text>
+  </g>
+  <path d="M360 490 H450" stroke="#4b6b13" stroke-width="2.5" stroke-dasharray="8 7" fill="none" marker-end="url(#ah4)"/>
+  <text x="60" y="650" font-size="16" fill="#77828f">If the WebGL context cannot be created, the game never starts and the page renderer takes over automatically.</text>
+</svg>

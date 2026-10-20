@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mirza Nazeef bin Mansor — playable portfolio</title>
+<meta name="description" content="Walk a 3D character through seven checkpoints and unlock the experience, projects and skills of Mirza Nazeef bin Mansor, an Information Technology student at UTHM.">
+<meta name="theme-color" content="#eef3f9">
+<meta property="og:title" content="Mirza Nazeef bin Mansor — playable portfolio">
+<meta property="og:description" content="A 3D run through an IT student's experience: each checkpoint unlocks real projects, skills and awards.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/ui.css">
+<link rel="stylesheet" href="css/world.css">
+<link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body data-mode="game">
+<a class="skip" href="#page">Skip to the readable version</a>
+
+<main id="game" aria-label="3D portfolio game">
+  <div id="viewport"></div>
+
+  <div class="hud-top">
+    <div class="who">
+      <strong id="hud-name">Mirza Nazeef bin Mansor</strong>
+      <span id="hud-role">Information Technology student · UTHM</span>
+    </div>
+    <div class="levels">
+      <span class="lv">LV <b id="lvl">1</b></span>
+      <span class="xp">
+        <span class="xp-track"><span class="xp-fill" id="xp-fill"></span></span>
+        <span class="xp-num" id="xp-text">0 / 110 XP</span>
+      </span>
+      <span class="prog" id="progress">0 / 7 stops</span>
+    </div>
+  </div>
+
+  <aside class="inv" id="inv">
+    <button class="inv-head" id="inv-toggle" aria-expanded="true" aria-controls="inv-groups">
+      Skill inventory <span class="inv-count" id="inv-count">0</span>
+    </button>
+    <div class="inv-body open" id="inv-groups"></div>
+  </aside>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+  <div class="hintbar"><span id="hint"></span></div>
+
+  <div class="ctools">
+    <a class="tool tool-back" href="../index.html">← Portfolio site</a>
+    <button type="button" class="tool" id="btn-tour">Tour the route</button>
+    <button type="button" class="tool" id="btn-page">Read as a page</button>
+    <button type="button" class="tool" id="btn-reset">Reset run</button>
+    <button type="button" class="tool" id="btn-full">Fullscreen</button>
+  </div>
+
+  <div class="dpad" aria-hidden="false">
+    <button type="button" class="dbtn up" data-dir="f" aria-label="Walk forward">▲</button>
+    <button type="button" class="dbtn left" data-dir="l" aria-label="Step left">◀</button>
+    <button type="button" class="dbtn right" data-dir="r" aria-label="Step right">▶</button>
+    <button type="button" class="dbtn down" data-dir="b" aria-label="Walk back">▼</button>
+  </div>
+
+  <section class="card" id="card" role="dialog" aria-modal="false" aria-labelledby="card-title" aria-hidden="true" tabindex="-1">
+    <p class="card-kicker" id="card-kicker"></p>
+    <h2 class="card-title" id="card-title"></h2>
+    <p class="card-meta" id="card-meta"></p>
+    <p class="card-para" id="card-para"></p>
+    <ul class="card-points" id="card-bullets"></ul>
+    <dl class="card-stats" id="card-stats"></dl>
+    <div class="card-unlocks" id="card-unlocks"></div>
+    <div class="card-actions">
+      <button type="button" class="btn btn-primary" id="card-next">Next stop →</button>
+      <button type="button" class="btn" id="card-close">Close</button>
+    </div>
+  </section>
+</main>
+
+<div class="webgl-note" id="webgl-note" role="alert" hidden>
+  This device could not start WebGL, so the readable version of the portfolio is shown instead.
+</div>
+
+<div id="page" class="page"></div>
+
+<script src="libs/three.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/world.js"></script>
+<script src="js/avatar.js"></script>
+<script src="js/camera.js"></script>
+<script src="js/input.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/page.js"></script>
+<script src="js/game.js"></script>
+<script>
+/* embedded in the main site's 3D showcase iframe → hide the link that would navigate it away */
+if (window.self !== window.top) document.body.setAttribute('data-embedded', 'true');
+</script>
+<script>
+(function () {
+  function toPage(reason) {
+    document.body.setAttribute('data-mode', 'page');
+    var note = document.getElementById('webgl-note');
+    if (note && reason) note.hidden = false;
+    window.PortfolioPage.render();
+  }
+
+  var result;
+  try {
+    result = window.PortfolioGame.boot();
+  } catch (err) {
+    result = { ok: false, reason: 'exception' };
+  }
+  if (!result.ok) {
+    /* the page mode button still has to do something when there is no game to switch to */
+    window.PortfolioGame.setMode = function (next) { if (next === 'page') toPage(false); };
+    toPage(result.reason === 'webgl-unavailable' || result.reason === 'exception');
+  }
+
+  /* built even in game mode so Ctrl-P always prints the readable version */
+  window.PortfolioPage.render();
+})();
+</script>
+</body>
+</html>

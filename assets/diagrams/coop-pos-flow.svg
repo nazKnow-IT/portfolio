@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" width="1600" height="760" role="img"
+     font-family="Segoe UI, Helvetica, Arial, sans-serif" aria-label="POS architecture: a barcode scanner feeds a PHP application, which writes sales and stock movements into a MySQL ledger; threshold checks raise replenishment alerts and the same tables feed role-gated dashboards.">
+  <defs>
+    <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#b4530d"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="760" fill="#ffffff"/>
+  <text x="40" y="52" font-family="IBM Plex Mono, Consolas, monospace" font-size="21" letter-spacing="4" fill="#b4530d">COOP STORE POS — SYSTEM FLOW</text>
+  <text x="40" y="82" font-size="18" fill="#77828f">PHP over MySQL, served from the campus XAMPP host.</text>
+
+  <!-- inputs -->
+  <g transform="translate(60 120)">
+    <rect width="300" height="90" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="36" font-size="20" font-weight="600" fill="#151a22">Barcode scanner</text>
+    <text x="20" y="64" font-size="16" fill="#495464">counter + warehouse receiving</text>
+  </g>
+  <g transform="translate(60 240)">
+    <rect width="300" height="90" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="36" font-size="20" font-weight="600" fill="#151a22">Cashier terminal</text>
+    <text x="20" y="64" font-size="16" fill="#495464">cart, discount, receipt</text>
+  </g>
+  <g transform="translate(60 360)">
+    <rect width="300" height="90" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="36" font-size="20" font-weight="600" fill="#151a22">Warehouse entry</text>
+    <text x="20" y="64" font-size="16" fill="#495464">goods received, adjustments</text>
+  </g>
+
+  <!-- role gate -->
+  <g transform="translate(430 180)">
+    <rect width="250" height="240" rx="12" fill="#2b3a52"/>
+    <text x="24" y="42" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" letter-spacing="3" fill="#f59e0b">SESSION GATE</text>
+    <text x="24" y="80" font-size="19" font-weight="600" fill="#fff">Role middleware</text>
+    <g font-size="16" fill="#a9bccc">
+      <text x="24" y="118">superadmin</text>
+      <text x="24" y="146">department manager</text>
+      <text x="24" y="174">warehouse staff</text>
+      <text x="24" y="202">cashier</text>
+    </g>
+  </g>
+  <path d="M360 165 H410 V300" stroke="#405473" stroke-width="2.5" fill="none"/>
+  <path d="M360 285 H410" stroke="#405473" stroke-width="2.5"/>
+  <path d="M360 405 H410 V360" stroke="#405473" stroke-width="2.5" fill="none"/>
+  <path d="M680 300 H750" stroke="#b4530d" stroke-width="3" marker-end="url(#ah2)"/>
+
+  <!-- app -->
+  <g transform="translate(760 200)">
+    <rect width="330" height="200" rx="12" fill="#f4f7fb" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="24" y="42" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" letter-spacing="3" fill="#77828f">PHP APPLICATION</text>
+    <g font-size="18" fill="#151a22">
+      <text x="24" y="80">item lookup</text>
+      <text x="24" y="112">sale + stock movement</text>
+      <text x="24" y="144">supplier records</text>
+      <text x="24" y="176">reporting queries</text>
+    </g>
+  </g>
+  <path d="M1090 300 H1160" stroke="#b4530d" stroke-width="3" marker-end="url(#ah2)"/>
+
+  <!-- db -->
+  <g transform="translate(1170 190)">
+    <ellipse cx="180" cy="26" rx="180" ry="26" fill="#2b3a52"/>
+    <rect y="26" width="360" height="170" fill="#33465f"/>
+    <ellipse cy="196" cx="180" rx="180" ry="26" fill="#33465f"/>
+    <g font-size="18" fill="#e6ecf5">
+      <text x="24" y="80">MySQL ledger</text>
+      <text x="24" y="112">products · stock · movements</text>
+      <text x="24" y="140">sales · sale_lines · suppliers</text>
+      <text x="24" y="168">users · roles · audit</text>
+    </g>
+  </g>
+
+  <!-- outputs -->
+  <path d="M1350 250 V120 H1120" stroke="#b4530d" stroke-width="3" fill="none" marker-end="url(#ah2)"/>
+  <g transform="translate(760 60)">
+    <rect width="350" height="90" rx="10" fill="#fffaf3" stroke="#f0cfa4" stroke-width="2"/>
+    <text x="20" y="36" font-size="20" font-weight="600" fill="#151a22">Replenishment alerts</text>
+    <text x="20" y="64" font-size="16" fill="#495464">minimum threshold crossed</text>
+  </g>
+  <path d="M1350 400 V520 H1120" stroke="#b4530d" stroke-width="3" fill="none" marker-end="url(#ah2)"/>
+  <g transform="translate(760 480)">
+    <rect width="350" height="110" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="38" font-size="20" font-weight="600" fill="#151a22">Admin dashboard</text>
+    <text x="20" y="66" font-size="16" fill="#495464">sales analytics · monthly performance</text>
+    <text x="20" y="92" font-size="16" fill="#495464">supplier tracking tables</text>
+  </g>
+  <g transform="translate(60 480)">
+    <rect width="300" height="110" rx="10" fill="#f4f7fb" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="38" font-size="20" font-weight="600" fill="#151a22">UAT with staff</text>
+    <text x="20" y="66" font-size="16" fill="#495464">scored questionnaire</text>
+    <text x="20" y="92" font-size="16" fill="#495464">&gt;90% positive on workflow</text>
+  </g>
+  <path d="M360 535 H760" stroke="#405473" stroke-width="2.5" stroke-dasharray="8 7" fill="none" marker-end="url(#ah2)"/>
+  <text x="40" y="690" font-size="16" fill="#77828f">Every stock movement is written in the same transaction as the sale line, so the ledger and the takings cannot drift apart.</text>
+</svg>

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 820" width="1600" height="820" role="img"
+     font-family="Segoe UI, Helvetica, Arial, sans-serif" aria-label="SignSpeak architecture: Flutter camera frames go over HTTP to a FastAPI service that extracts MediaPipe landmarks, normalises them, classifies them with a CNN or BiLSTM, and returns the sign, confidence and landmark points to the client.">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#b4530d"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="820" fill="#ffffff"/>
+  <text x="40" y="52" font-family="IBM Plex Mono, Consolas, monospace" font-size="21" letter-spacing="4" fill="#b4530d">SIGNSPEAK — RECOGNITION PATH</text>
+  <text x="40" y="82" font-size="18" fill="#77828f">Drawn from the implemented Flutter client and FastAPI service (app.py).</text>
+
+  <!-- client band -->
+  <rect x="40" y="110" width="1520" height="150" rx="14" fill="#f4f7fb" stroke="#dde3ec"/>
+  <text x="60" y="140" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" letter-spacing="3" fill="#77828f">CLIENT · FLUTTER</text>
+  <g>
+    <g transform="translate(60 158)">
+      <rect width="300" height="84" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+      <text x="20" y="34" font-size="20" font-weight="600" fill="#151a22">Camera preview</text>
+      <text x="20" y="62" font-size="16" fill="#495464">frames captured on device</text>
+    </g>
+    <path d="M360 200 H440" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+    <g transform="translate(450 158)">
+      <rect width="300" height="84" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+      <text x="20" y="34" font-size="20" font-weight="600" fill="#151a22">Frame batching</text>
+      <text x="20" y="62" font-size="16" fill="#495464">multipart POST, 5–30 frames</text>
+    </g>
+    <path d="M750 200 H830" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+    <g transform="translate(840 158)">
+      <rect width="320" height="84" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+      <text x="20" y="34" font-size="20" font-weight="600" fill="#151a22">Auth gate</text>
+      <text x="20" y="62" font-size="16" fill="#495464">Firebase · learner / DHH / admin</text>
+    </g>
+    <path d="M1160 200 H1240" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+    <g transform="translate(1250 158)">
+      <rect width="290" height="84" rx="10" fill="#2b3a52" stroke="#2b3a52" stroke-width="2"/>
+      <text x="20" y="34" font-size="20" font-weight="600" fill="#fff">HTTP boundary</text>
+      <text x="20" y="62" font-size="16" fill="#a9bccc">/translate-sequence · /translate-frame</text>
+    </g>
+  </g>
+
+  <path d="M1395 242 V300" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+
+  <!-- server band -->
+  <rect x="40" y="300" width="1520" height="230" rx="14" fill="#fffaf3" stroke="#f0cfa4"/>
+  <text x="60" y="330" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" letter-spacing="3" fill="#b4530d">SERVER · PYTHON FASTAPI</text>
+  <g transform="translate(60 348)">
+    <rect width="300" height="84" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="34" font-size="20" font-weight="600" fill="#151a22">OpenCV decode</text>
+    <text x="20" y="62" font-size="16" fill="#495464">resize · colour convert</text>
+  </g>
+  <path d="M360 390 H440" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+  <g transform="translate(450 348)">
+    <rect width="300" height="84" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="34" font-size="20" font-weight="600" fill="#151a22">MediaPipe Holistic</text>
+    <text x="20" y="62" font-size="16" fill="#495464">1,662 keypoints per frame</text>
+  </g>
+  <path d="M750 390 H830" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+  <g transform="translate(840 348)">
+    <rect width="320" height="84" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="34" font-size="20" font-weight="600" fill="#151a22">Normalise</text>
+    <text x="20" y="62" font-size="16" fill="#495464">shoulder midpoint · nose scale</text>
+  </g>
+  <path d="M1160 390 H1240" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+  <g transform="translate(1250 348)">
+    <rect width="290" height="84" rx="10" fill="#fff" stroke="#b4530d" stroke-width="3"/>
+    <text x="20" y="34" font-size="20" font-weight="600" fill="#151a22">Classifier</text>
+    <text x="20" y="62" font-size="16" fill="#495464">Conv1D+BiLSTM · MobileNetV3</text>
+  </g>
+  <text x="1250" y="466" font-size="16" fill="#8a3d05">swap point — model chosen by the request’s mode parameter</text>
+
+  <path d="M200 432 V492" stroke="#405473" stroke-width="3" marker-end="url(#ah)"/>
+  <g transform="translate(60 530)">
+    <rect width="300" height="84" rx="10" fill="#f4f7fb" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="34" font-size="20" font-weight="600" fill="#151a22">Legacy paths</text>
+    <text x="20" y="62" font-size="16" fill="#495464">Teachable Machine · 6-class model</text>
+  </g>
+
+  <!-- output band -->
+  <rect x="40" y="640" width="1520" height="140" rx="14" fill="#f4f7fb" stroke="#dde3ec"/>
+  <text x="60" y="670" font-family="IBM Plex Mono, Consolas, monospace" font-size="15" letter-spacing="3" fill="#77828f">RESPONSE → CLIENT</text>
+  <g transform="translate(60 686)">
+    <rect width="360" height="76" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="30" font-size="19" font-weight="600" fill="#151a22">JSON result</text>
+    <text x="20" y="56" font-size="16" fill="#495464">sign word · confidence · landmarks</text>
+  </g>
+  <path d="M420 724 H500" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+  <g transform="translate(510 686)">
+    <rect width="330" height="76" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="30" font-size="19" font-weight="600" fill="#151a22">Skeleton overlay</text>
+    <text x="20" y="56" font-size="16" fill="#495464">drawn on the live preview</text>
+  </g>
+  <path d="M840 724 H920" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+  <g transform="translate(930 686)">
+    <rect width="290" height="76" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="30" font-size="19" font-weight="600" fill="#151a22">Spoken output</text>
+    <text x="20" y="56" font-size="16" fill="#495464">text-to-speech service</text>
+  </g>
+  <path d="M1220 724 H1300" stroke="#b4530d" stroke-width="3" marker-end="url(#ah)"/>
+  <g transform="translate(1310 686)">
+    <rect width="230" height="76" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="30" font-size="19" font-weight="600" fill="#151a22">History</text>
+    <text x="20" y="56" font-size="16" fill="#495464">Firestore record</text>
+  </g>
+</svg>

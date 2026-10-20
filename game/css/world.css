@@ -1,0 +1,178 @@
+/* Game chrome: canvas stage, HUD panels, checkpoint card, D-pad, toasts. */
+html, body { height: 100%; }
+
+body[data-mode="game"] { overflow: hidden; }
+
+#game {
+  position: fixed; inset: 0; overflow: hidden;
+  background: linear-gradient(#f6fafd 0%, #e6eff8 62%, #cfdfee 100%);
+}
+#viewport { position: absolute; inset: 0; }
+#viewport canvas { display: block; }
+
+.hud-top, .inv, .card, .toast, .hintbar {
+  background: rgba(255, 255, 255, .94);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* top-left identity + progression */
+.hud-top {
+  position: absolute; top: 14px; left: 14px; z-index: 6;
+  padding: 11px 14px; display: grid; gap: 9px; max-width: min(370px, 60vw);
+}
+.who strong { display: block; font-size: 15px; font-weight: 620; }
+.who span { font-size: 12.5px; color: var(--muted); }
+.levels { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.lv {
+  font: 600 12px/1.6 var(--mono); color: #1f4f8f;
+  background: var(--accent-soft); border: 1px solid #d5e3f7; border-radius: 999px; padding: 1px 9px;
+}
+.xp { display: flex; align-items: center; gap: 8px; }
+.xp-track { width: 112px; height: 6px; border-radius: 999px; background: #e4ebf3; overflow: hidden; }
+.xp-fill {
+  display: block; height: 100%; width: 0; border-radius: 999px;
+  background: linear-gradient(90deg, #6fb0f2, var(--accent));
+  transition: width .5s cubic-bezier(.2, .8, .3, 1);
+}
+.xp-num, .prog { font: 500 11.5px/1 var(--mono); color: var(--ink-2); }
+.prog { color: var(--muted); }
+
+@keyframes xp-flash { 0%, 100% { filter: brightness(1); } 45% { filter: brightness(1.65); } }
+.xp-fill.flash { animation: xp-flash .65s ease; }
+
+/* right-hand skill inventory */
+.inv { position: absolute; top: 14px; right: 14px; z-index: 5; width: min(274px, 44vw); overflow: hidden; }
+.inv-head {
+  width: 100%; display: flex; align-items: center; gap: 8px; cursor: pointer;
+  background: transparent; border: 0; border-bottom: 1px solid var(--line);
+  padding: 10px 12px; font-size: 13px; font-weight: 600; color: var(--ink);
+}
+.inv-head:hover { color: var(--accent); }
+.inv-count {
+  margin-left: auto; font: 600 11px/1.6 var(--mono); color: #1f4f8f;
+  background: var(--accent-soft); border-radius: 999px; padding: 1px 8px;
+}
+.inv-body { display: none; max-height: min(52vh, 430px); overflow-y: auto; padding: 11px 12px 13px; }
+.inv-body.open { display: block; }
+.inv-group { margin-bottom: 13px; }
+.inv-group:last-child { margin-bottom: 0; }
+.inv-group h4 {
+  display: flex; justify-content: space-between; gap: 8px; margin-bottom: 7px;
+  font: 500 10.5px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted);
+}
+.inv-num { color: var(--accent); }
+.inv-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+@keyframes inv-bump { 40% { transform: translateY(-3px); } }
+.inv.bump { animation: inv-bump .5s ease; }
+body.card-open .inv { opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+
+/* toasts */
+.toasts {
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%); z-index: 8;
+  display: grid; gap: 8px; width: min(384px, 86vw); pointer-events: none;
+}
+.toast { padding: 9px 12px; display: grid; gap: 2px; border-left: 3px solid var(--accent); }
+.toast strong { font-size: 13px; font-weight: 620; }
+.toast span { font-size: 12px; color: var(--muted); }
+.toast-skill, .toast-done { border-left-color: var(--done); }
+.toast-badge { border-left-color: var(--gold); }
+.toast-muted { border-left-color: var(--line-2); }
+@keyframes toast-in { from { opacity: 0; transform: translateY(-10px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes toast-out { to { opacity: 0; transform: translateY(-8px); } }
+.toast { animation: toast-in .34s cubic-bezier(.2, .9, .3, 1.15) both; }
+.toast.out { animation: toast-out .4s ease both; }
+
+/* hint strip and action buttons */
+.hintbar {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); z-index: 6;
+  padding: 7px 14px; font-size: 12.5px; color: var(--ink-2);
+  max-width: min(560px, 92vw); text-align: center;
+}
+.ctools {
+  position: absolute; bottom: 14px; left: 14px; z-index: 6;
+  display: flex; flex-wrap: wrap; gap: 6px; max-width: min(44vw, 430px);
+}
+.tool {
+  padding: 7px 11px; font-size: 12.5px; cursor: pointer;
+  background: rgba(255, 255, 255, .94); color: var(--ink);
+  border: 1px solid var(--line-2); border-radius: 9px; box-shadow: var(--shadow);
+}
+.tool:hover { border-color: var(--accent); color: var(--accent); }
+a.tool { text-decoration: none; }
+/* the back link only makes sense when the game is the whole page */
+body[data-embedded="true"] .tool-back { display: none; }
+
+/* touch D-pad, only on devices without a hover pointer */
+.dpad {
+  display: none; position: absolute; right: 16px; bottom: 16px; z-index: 7;
+  grid-template-columns: repeat(3, 54px); grid-template-rows: repeat(3, 54px); gap: 5px;
+}
+@media (hover: none) and (pointer: coarse) { .dpad { display: grid; } }
+.dbtn {
+  font-size: 15px; color: var(--ink-2); cursor: pointer; touch-action: none;
+  background: rgba(255, 255, 255, .92); border: 1px solid var(--line-2); border-radius: 12px;
+  user-select: none; -webkit-user-select: none;
+}
+.dbtn.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.dbtn.up { grid-area: 1 / 2; }
+.dbtn.left { grid-area: 2 / 1; }
+.dbtn.right { grid-area: 2 / 3; }
+.dbtn.down { grid-area: 3 / 2; }
+
+/* checkpoint card */
+.card {
+  position: absolute; top: 14px; right: 14px; bottom: 14px; z-index: 9;
+  width: min(434px, 92vw); padding: 18px 20px; overflow-y: auto;
+  transform: translateX(calc(100% + 26px)); opacity: 0; pointer-events: none;
+  transition: transform .42s cubic-bezier(.2, .85, .25, 1), opacity .3s ease;
+}
+.card.open { transform: none; opacity: 1; pointer-events: auto; }
+.card-kicker { font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--accent); }
+.card-title { font-size: 25px; font-weight: 640; margin: 6px 0 4px; }
+.card-meta { font-size: 13px; color: var(--ink-2); margin-bottom: 12px; }
+.card-para { font-size: 14px; color: var(--ink-2); margin-bottom: 14px; }
+.card-points { display: grid; gap: 7px; margin-bottom: 16px; }
+.card-points li { position: relative; padding-left: 18px; font-size: 13.5px; color: var(--ink-2); }
+.card-points li::before {
+  content: ""; position: absolute; left: 3px; top: 7px; width: 6px; height: 6px;
+  border-radius: 2px; background: var(--accent); opacity: .55;
+}
+.card-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); gap: 8px; margin: 0 0 16px; }
+.card-stats > div { background: var(--surface-2); border: 1px solid var(--line); border-radius: 9px; padding: 8px 10px; }
+.card-stats dt { font: 500 10px/1.3 var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.card-stats dd { margin: 4px 0 0; font-size: 13.5px; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.card-unlocks { display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px dashed var(--line-2); padding-top: 13px; margin-bottom: 16px; }
+.unlock-lead { width: 100%; margin: 0 0 3px; font: 600 12px/1.4 var(--mono); color: var(--done); }
+.card-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 860px) {
+  .card { top: auto; left: 10px; right: 10px; bottom: 10px; width: auto; max-height: 68vh;
+    transform: translateY(calc(100% + 24px)); }
+  .card.open { transform: none; }
+  /* the sheet scrolls, so keep the next-stop action pinned where it can be reached */
+  .card-actions {
+    position: sticky; bottom: 0; margin: 0 -20px -18px; padding: 10px 20px 18px;
+    background: rgba(255, 255, 255, .97); border-top: 1px solid var(--line);
+  }
+  .ctools { max-width: 42vw; }
+  .hintbar { bottom: 78px; }
+}
+
+@media (max-width: 540px) {
+  .hud-top { left: 10px; right: 10px; top: 10px; max-width: none; }
+  .toasts { top: 108px; width: calc(100% - 20px); }
+  .inv { top: 172px; right: 10px; width: min(280px, 82vw); }
+  .inv-body { max-height: 34vh; }
+  .hintbar { left: 10px; right: 10px; bottom: 70px; transform: none; max-width: none; font-size: 12px; }
+  .ctools { left: 10px; right: 10px; bottom: 10px; max-width: none; }
+  .dpad { right: 10px; bottom: 70px; grid-template-columns: repeat(3, 48px); grid-template-rows: repeat(3, 48px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast, .toast.out, .xp-fill.flash, .inv.bump { animation: none; }
+  .card { transition: opacity .2s ease; transform: none; }
+  .card:not(.open) { opacity: 0; }
+  .xp-fill { transition: none; }
+}

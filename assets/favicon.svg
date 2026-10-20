@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Gear Studio mark">
+  <rect width="64" height="64" rx="14" fill="#eef3f9"/>
+  <g fill="none" stroke="#2f7de1" stroke-width="4" stroke-linecap="round">
+    <circle cx="32" cy="32" r="9"/>
+    <path d="M32 8v7M32 49v7M56 32h-7M15 32H8M49 15l-5 5M20 44l-5 5M49 49l-5-5M20 20l-5-5"/>
+  </g>
+  <circle cx="32" cy="32" r="18" fill="none" stroke="#9dbfe6" stroke-width="3" stroke-dasharray="5 6"/>
+  <circle cx="32" cy="14" r="4.5" fill="#2f8f63"/>
+</svg>

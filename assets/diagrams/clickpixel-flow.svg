@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 560" width="1600" height="560" role="img"
+     font-family="Segoe UI, Helvetica, Arial, sans-serif" aria-label="E-commerce order flow: a customer chooses product options, a pricing rule set produces a quote, the cart and payment gateway take the order, and the order record is mirrored to Google Sheets and released to the print production queue.">
+  <defs>
+    <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#b4530d"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="560" fill="#ffffff"/>
+  <text x="40" y="52" font-family="IBM Plex Mono, Consolas, monospace" font-size="21" letter-spacing="4" fill="#b4530d">CUSTOM PRINT ORDER — QUOTE TO PRODUCTION</text>
+
+  <g transform="translate(40 100)">
+    <rect width="280" height="110" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="38" font-size="20" font-weight="600" fill="#151a22">Product options</text>
+    <text x="20" y="66" font-size="16" fill="#495464">fabric · paper stock</text>
+    <text x="20" y="92" font-size="16" fill="#495464">dimensions · quantity</text>
+  </g>
+  <path d="M320 155 H390" stroke="#b4530d" stroke-width="3" marker-end="url(#ah3)"/>
+  <g transform="translate(400 100)">
+    <rect width="280" height="110" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="38" font-size="20" font-weight="600" fill="#151a22">Pricing tiers</text>
+    <text x="20" y="66" font-size="16" fill="#495464">volume breaks</text>
+    <text x="20" y="92" font-size="16" fill="#495464">quotation calculator form</text>
+  </g>
+  <path d="M680 155 H750" stroke="#b4530d" stroke-width="3" marker-end="url(#ah3)"/>
+  <g transform="translate(760 100)">
+    <rect width="280" height="110" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="38" font-size="20" font-weight="600" fill="#151a22">Cart &amp; checkout</text>
+    <text x="20" y="66" font-size="16" fill="#495464">payment gateway</text>
+    <text x="20" y="92" font-size="16" fill="#495464">tested end to end</text>
+  </g>
+  <path d="M1040 155 H1110" stroke="#b4530d" stroke-width="3" marker-end="url(#ah3)"/>
+  <g transform="translate(1120 100)">
+    <rect width="280" height="110" rx="10" fill="#2b3a52"/>
+    <text x="20" y="38" font-size="20" font-weight="600" fill="#fff">Order record</text>
+    <text x="20" y="66" font-size="16" fill="#a9bccc">store backend</text>
+    <text x="20" y="92" font-size="16" fill="#a9bccc">+ client verification</text>
+  </g>
+
+  <path d="M1260 210 V270" stroke="#b4530d" stroke-width="3" fill="none" marker-end="url(#ah3)"/>
+  <g transform="translate(1120 285)">
+    <rect width="280" height="100" rx="10" fill="#eaf3da" stroke="#4b6b13" stroke-width="2"/>
+    <text x="20" y="36" font-size="19" font-weight="600" fill="#33490d">Pre-press check</text>
+    <text x="20" y="64" font-size="16" fill="#4b6b13">specification sign-off</text>
+    <text x="20" y="88" font-size="16" fill="#4b6b13">before the print run</text>
+  </g>
+  <path d="M1120 335 H980" stroke="#4b6b13" stroke-width="3" fill="none" marker-end="url(#ah3)"/>
+  <g transform="translate(620 285)">
+    <rect width="350" height="100" rx="10" fill="#fff" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="36" font-size="19" font-weight="600" fill="#151a22">Printing production system</text>
+    <text x="20" y="64" font-size="16" fill="#495464">quantities and specifications arrive</text>
+    <text x="20" y="88" font-size="16" fill="#495464">without being retyped</text>
+  </g>
+
+  <path d="M1260 385 V440" stroke="#405473" stroke-width="2.5" stroke-dasharray="8 7" fill="none" marker-end="url(#ah3)"/>
+  <g transform="translate(1050 455)">
+    <rect width="420" height="70" rx="10" fill="#f4f7fb" stroke="#c3ccd9" stroke-width="2"/>
+    <text x="20" y="30" font-size="18" font-weight="600" fill="#151a22">Google Sheets order pipeline</text>
+    <text x="20" y="54" font-size="15" fill="#495464">order tracking synchronised for the sales team</text>
+  </g>
+  <g transform="translate(40 285)">
+    <rect width="480" height="100" rx="10" fill="#fffaf3" stroke="#f0cfa4" stroke-width="2"/>
+    <text x="20" y="36" font-size="19" font-weight="600" fill="#8a3d05">Catalogue structure</text>
+    <text x="20" y="64" font-size="16" fill="#495464">sublimation jerseys · mirror kote stickers · business cards</text>
+    <text x="20" y="88" font-size="16" fill="#495464">flyers · envelopes · textile stamps · wall calendars</text>
+  </g>
+  <path d="M520 335 H620" stroke="#405473" stroke-width="2.5" stroke-dasharray="8 7" fill="none" marker-end="url(#ah3)"/>
+  <text x="40" y="500" font-size="16" fill="#77828f">Responsive layouts, mega menus and asset-loading optimisation sit across every page of the storefront.</text>
+</svg>

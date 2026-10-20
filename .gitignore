@@ -1,0 +1,13 @@
+# OS and editor junk that should never reach the repo
+.DS_Store
+Thumbs.db
+desktop.ini
+.$*
+
+# Local tooling
+node_modules/
+npm-debug.log*
+*.log
+
+# Anything you drop in here while drafting stays on your machine
+drafts/

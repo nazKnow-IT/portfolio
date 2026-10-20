@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Width harness — check the site at any viewport</title>
+<meta name="description" content="Local testing page: shows index.html inside a frame of an exact pixel width so the responsive layout can be screenshotted without resizing the browser window.">
+<style>
+  body { margin: 0; background: #1b2431; font: 13px/1.4 ui-monospace, Consolas, monospace; }
+  #bar { position: fixed; bottom: 0; right: 0; z-index: 2; background: #1b2431; color: #cfd8e6;
+         padding: 6px 10px; border-top-left-radius: 8px; }
+  #bar b { color: #f59e0b; }
+  #stage { display: block; border: 0; margin: 0; }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<iframe id="stage" title="Portfolio under test"></iframe>
+<script>
+  var q = new URLSearchParams(location.search);
+  var w = parseInt(q.get('w'), 10) || 1400;
+  var h = parseInt(q.get('h'), 10) || 900;
+  var page = q.get('page') || '../index.html';
+  var stage = document.getElementById('stage');
+  stage.style.width = w + 'px';
+  stage.style.height = h + 'px';
+  stage.src = page;
+  document.getElementById('bar').innerHTML =
+    'viewport <b>' + w + '×</b>' + h + ' &nbsp;·&nbsp; scroll the frame with ' +
+    'window.__scroll(px) &nbsp;·&nbsp; ' + page;
+
+  /* the outer document is exactly as wide as the frame, so a full-page
+     screenshot of this page captures the layout at that width */
+  document.documentElement.style.width = w + 'px';
+  document.body.style.width = w + 'px';
+
+  window.__scroll = function (px) { stage.contentWindow.scrollTo(0, px); return px; };
+  window.__section = function (id) {
+    document.getElementById('bar').style.display = 'none';
+    var el = stage.contentDocument.getElementById(id);
+    el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    return Math.round(stage.contentWindow.scrollY);
+  };
+
+  /* ?print=1 unwraps @media print and applies the result as an ordinary sheet,
+     so the Ctrl+P document can be screenshotted without a print dialog */
+  if (q.get('print')) {
+    stage.addEventListener('load', function () {
+      fetch('../css/print.css').then(function (r) { return r.text(); }).then(function (t) {
+        var head = '@media print {';
+        var css = t.slice(t.indexOf(head) + head.length, t.lastIndexOf('}'));
+        var style = stage.contentDocument.createElement('style');
+        style.textContent = css + '\n.print-only{display:block}';
+        stage.contentDocument.head.appendChild(style);
+        document.getElementById('bar').style.display = 'none';
+      });
+    });
+  }
+</script>
+</body>
+</html>

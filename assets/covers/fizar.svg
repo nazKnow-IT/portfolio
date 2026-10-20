@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Cover artwork for the Fizar Enterprise site: an apparel shape, a banner and vector pen paths">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7f3ee"/><stop offset="1" stop-color="#e6ecf5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg4)"/>
+  <g stroke="#c3ccd9" stroke-width="1.5" fill="none" opacity=".7">
+    <path d="M0 300h1600M0 600h1600"/><path d="M533 0v900M1066 0v900"/>
+  </g>
+  <!-- tee shirt -->
+  <g transform="translate(180 210)">
+    <path d="M120 40L20 110l50 90 40-24v300h260V176l40 24 50-90-100-70-60 34h-60z"
+          fill="#fff" stroke="#2b3a52" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M180 74c0 26 20 44 44 44s44-18 44-44" fill="none" stroke="#2b3a52" stroke-width="5"/>
+    <g fill="#b4530d"><circle cx="240" cy="250" r="8"/><rect x="180" y="286" width="120" height="10" rx="5"/><rect x="200" y="312" width="80" height="10" rx="5"/></g>
+  </g>
+  <!-- banner -->
+  <g transform="translate(700 150)">
+    <rect x="0" y="0" width="420" height="560" rx="8" fill="#2b3a52"/>
+    <rect x="26" y="40" width="240" height="26" rx="13" fill="#f59e0b"/>
+    <rect x="26" y="90" width="330" height="14" rx="7" fill="#5b7096"/>
+    <rect x="26" y="120" width="290" height="14" rx="7" fill="#5b7096"/>
+    <rect x="26" y="180" width="368" height="230" rx="6" fill="#1f2b3e"/>
+    <g stroke="#fbbf24" stroke-width="4" fill="none">
+      <path d="M60 360 L150 250 L230 320 L330 210"/>
+    </g>
+    <g fill="#fbbf24"><circle cx="150" cy="250" r="7"/><circle cx="230" cy="320" r="7"/><circle cx="330" cy="210" r="7"/></g>
+    <g fill="#8fa5c6"><rect x="26" y="440" width="150" height="12" rx="6"/><rect x="26" y="470" width="220" height="12" rx="6"/></g>
+    <g stroke="#9fb3d1" stroke-width="3"><path d="M0 0v-40M420 0v-40"/></g>
+  </g>
+  <!-- vector pen path motif -->
+  <g transform="translate(1180 300)" fill="none" stroke="#b4530d" stroke-width="4">
+    <path d="M0 240 C60 60 200 40 300 160"/>
+    <g fill="#fff" stroke="#b4530d" stroke-width="4">
+      <rect x="-12" y="228" width="24" height="24"/><rect x="288" y="148" width="24" height="24"/>
+    </g>
+    <g stroke="#495464" stroke-width="2" stroke-dasharray="6 6">
+      <path d="M12 228 L70 120"/><path d="M288 160 L230 60"/>
+    </g>
+    <g fill="#495464"><circle cx="70" cy="120" r="6"/><circle cx="230" cy="60" r="6"/></g>
+  </g>
+  <text x="180" y="790" font-family="IBM Plex Mono, Consolas, monospace" font-size="24" fill="#495464" letter-spacing="4">PRINT-READY ASSETS → WEB → APPROVAL</text>
+</svg>
