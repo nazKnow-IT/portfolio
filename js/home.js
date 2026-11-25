@@ -341,8 +341,8 @@
   }
 
   // the app is locked (clicks and wheel pass to the page) until the visitor chooses to use it
-  function unlockApp() { live.classList.remove('locked'); app.tabIndex = 0; app.focus(); }
-  function lockApp() { live.classList.add('locked'); app.tabIndex = -1; }
+  function unlockApp() { live.classList.remove('locked'); app.tabIndex = 0; app.focus(); document.body.classList.add('app-open'); }
+  function lockApp() { live.classList.add('locked'); app.tabIndex = -1; document.body.classList.remove('app-open'); }
   $('#tryApp').addEventListener('click', unlockApp);
   // glide down past the laptop; animated by hand so it works even where smooth scrolling is unsupported
   function glideBy(dy) {
