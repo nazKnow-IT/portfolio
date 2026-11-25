@@ -272,443 +272,237 @@
     },
 
     {
-      id: 'clickpixel-commerce',
-      title: 'Click Pixel E-Commerce Platform',
-      subtitle: 'Storefront, quotation calculator and payment flow for a printing business',
-      status: 'Shipped during internship',
-      period: '2024 — 2025',
-      role: 'Intern — built and launched the site, integrated payments and order tracking',
-      solo: false,
-      categories: ['web', 'other'],
-      featured: true,
-      cover: 'assets/covers/clickpixel.svg',
-      tech: ['php', 'javascript', 'html5', 'css3', 'responsive-ui', 'wordpress', 'wix', 'rest-api', 'excel', 'ai-tools'],
-      summary: 'An end-to-end e-commerce site for a custom printing business: catalogue, dynamic '
-        + 'price calculation from material and volume options, cart, tested payment gateway, and '
-        + 'order data synchronised into the production workflow.',
-      overview: [
-        'A print shop sells things that do not fit a normal product page — a sublimation jersey '
-          + 'is priced by fabric, size run and quantity; a sticker by material, die-cut and '
-          + 'volume. This project replaced quote-by-message with a storefront that calculates a '
-          + 'price from the same options the production floor needs.',
-        'The work covered the whole path: catalogue structure, inquiry and quotation forms, '
-          + 'cart and payment integration, then getting the resulting order data into the '
-          + 'printing production system so nothing had to be retyped.'
-      ],
-      problem: 'Custom print orders arrived as unstructured messages. Every quote meant '
-        + 're-asking the same questions, and the answer then had to be re-entered by hand into '
-        + 'production, which is where quantities and specifications get lost.',
-      objectives: [
-        'Launch a storefront covering the business’s real product range with usable category structure',
-        'Turn material, dimension and volume choices into an instant price instead of a manual quote',
-        'Take payment online with a tested gateway across the full cart-to-checkout path',
-        'Synchronise order quantities and specifications into the printing production system',
-        'Improve navigation and mobile usability enough that the site could be the front door'
-      ],
-      features: [
-        'Product catalogue for sublimation jerseys, mirror kote stickers, business cards, flyers, envelopes, textile stamps and wall calendars',
-        'Dynamic pricing tiers and cost calculation forms driven by fabric, paper, dimension and order-volume options',
-        'Shopping cart with secure online payment gateway integration, tested from cart addition through to final checkout',
-        'Custom inquiry and quotation forms capturing the specification fields production actually needs',
-        'Google Sheets pipelines tracking customer orders and synchronising order records against the production queue',
-        'Interactive mega menus, responsive layouts and CSS animations for a faster browsing experience',
-        'Client verification flow and pre-press checks before an order reaches the print run'
-      ],
-      methodology: {
-        name: 'Requirement-led build with production-side verification',
-        steps: [
-          'Shadowed the quoting conversation to learn which options actually change a price',
-          'Structured products around those options instead of a generic catalogue template',
-          'Integrated the payment gateway and tested the transaction path end to end before announcing it',
-          'Connected order output to spreadsheets and the production system so one entry served both',
-          'Optimised asset loading and queries, then re-checked the flow on a phone'
-        ]
-      },
-      architecture: {
-        caption: 'From a customer’s option selection to a production-ready order record.',
-        diagram: 'assets/diagrams/clickpixel-flow.svg',
-        flow: [
-          'Customer picks product, material, dimensions and quantity',
-          'Pricing rules compute a tiered quote on the same form',
-          'Cart and payment gateway take the order with a verification step',
-          'Order record written to the store backend and mirrored to Google Sheets',
-          'Pre-press specification check gates the job into production',
-          'Quantities and specs land in the printing production system without re-entry'
-        ]
-      },
-      gallery: [
-        { src: 'assets/diagrams/clickpixel-flow.svg', alt: 'Order flow from product options through payment to the production system', caption: 'Order-to-production flow', kind: 'diagram' },
-        { src: 'assets/covers/clickpixel.svg', alt: 'Abstract cover of a storefront and price tag motif', caption: 'Project cover — concept illustration', kind: 'concept' }
-      ],
-      galleryNote: 'The live site belongs to the company. Ask before publishing screenshots or the URL.',
-      challenges: [
-        {
-          problem: 'Print pricing is not one number — fabric, paper stock, dimensions and volume all move it, and a wrong quote is paid for in production.',
-          solution: 'Modelled the options as pricing tiers in one place so the customer-facing calculator and the production specification read from the same rules.'
-        },
-        {
-          problem: 'A payment gateway that works in a test mode is not evidence it works for a customer.',
-          solution: 'Integrated and tested the gateway across the whole transaction path, from adding to cart through to completed checkout, before treating it as done.'
-        },
-        {
-          problem: 'Orders captured online still had to survive contact with a print queue.',
-          solution: 'Structured inquiry forms and client verification flows to carry pre-press specifications, then synchronised quantities and specs into the production system.'
-        },
-        {
-          problem: 'Rich product pages on a phone were slow.',
-          solution: 'Optimised web asset loading and queries to keep browsing responsive on mobile data, not just on the office desktop.'
-        }
-      ],
-      results: {
-        metrics: [
-          { k: 'Scope', v: 'Catalogue → payment' },
-          { k: 'Product lines', v: '7' },
-          { k: 'Status', v: 'Launched' }
-        ],
-        outcomes: [
-          'A live storefront handling custom print orders end to end, including online payment',
-          'Order data flowing into production without manual re-entry between systems',
-          'Measurable reduction in quoting back-and-forth for the sales team'
-        ]
-      },
-      learnings: [
-        'The hardest part of an e-commerce build is not the cart, it is modelling how the business actually prices things',
-        'Testing a payment path means testing it the way a customer does, once, fully',
-        'Two systems holding the same order need one authoritative record or the mismatch becomes someone’s weekend'
-      ],
-      links: { repo: '', demo: '' },
-      verify: 'The CV does not name the platform (WordPress, Wix or custom PHP) or the payment provider. Confirm both before publishing, and get written permission before linking the live site.'
-    },
-
-    {
-      id: 'fizar-website',
-      title: 'Fizar Enterprise Service Site',
-      subtitle: 'Portfolio and services website for a print and apparel business',
-      status: 'Delivered',
-      period: '2024 — 2025',
-      role: 'Part-time developer and designer',
+      id: 'teampilot',
+      title: 'TeamPilot',
+      subtitle: 'Group project planner with a capacity-aware scheduler and a reviewable AI coordinator',
+      status: 'Working prototype',
+      period: '2026',
+      role: 'Designed and built independently — planner, interface, server and AI agent',
       solo: true,
-      categories: ['web', 'other'],
-      featured: false,
-      cover: 'assets/covers/fizar.svg',
-      tech: ['html5', 'css3', 'javascript', 'responsive-ui', 'wordpress', 'illustrator', 'photoshop', 'canva'],
-      summary: 'A responsive site presenting the company’s services, completed print works and '
-        + 'custom apparel designs, backed by print-ready artwork and client mock-up workflows.',
+      categories: ['personal', 'web', 'ai'],
+      featured: true,
+      cover: 'assets/covers/teampilot.svg',
+      tech: ['javascript', 'node', 'html5', 'css3', 'responsive-ui', 'rest-api', 'agents-sdk', 'gemini-api', 'git', 'ai-tools'],
+      summary: 'A browser workspace that turns a group assignment brief, meeting notes and each '
+        + 'member’s available hours into a feasible schedule — and when someone drops out, an '
+        + 'AI coordinator proposes a recovery plan that the team leader reviews before anything changes.',
       overview: [
-        'A small print and apparel business needed somewhere to put its completed work so '
-          + 'prospects could see quality before asking for a quote. The site carries the service '
-          + 'range, a gallery of finished print works, and custom apparel designs.',
-        'Half the job was front-end, half was pre-press: vectorising logos for print, preparing '
-          + 'large-format banner artwork and producing mock-ups accurate enough that a client '
-          + 'approving one was approving what would actually be printed.'
+        'Student group projects usually fail the same way: tasks are split by guesswork, nobody '
+          + 'knows which piece blocks which, and when one member goes quiet the deadline slips '
+          + 'before anyone notices. TeamPilot gives the team leader one place to hold the brief, '
+          + 'the team’s skills and daily availability, the task board and the schedule.',
+        'A deterministic planning engine checks dependencies, fits work into each member’s '
+          + 'declared hours in half-hour blocks and flags anything that will not fit. On top of it '
+          + 'sits an AI coordinator built with an agents SDK and connected to Google Gemini. The '
+          + 'agent can read the project, evaluate a delay and stage a proposal through six narrowly '
+          + 'scoped tools — but it can never change the board on its own. Every change waits for '
+          + 'the leader to approve or reject it.'
       ],
-      problem: 'Work samples lived in a chat history. Prospects could not judge print quality '
-        + 'before ordering, and approvals given from imprecise previews turned into reprints.',
+      problem: 'Group work is planned from memory and good intentions. Nobody checks whether the '
+        + 'hours people actually have can cover the work assigned to them, dependencies are '
+        + 'discovered when someone is already blocked, and replanning after a member becomes '
+        + 'unavailable is done in a hurry over chat.',
       objectives: [
-        'Publish the service range and completed works in one responsive site',
-        'Present apparel and merchandise designs at a quality that supports a price',
-        'Produce mock-ups accurate enough to serve as client approval artefacts',
-        'Keep the site maintainable by the business after handover'
+        'Turn a brief, meeting notes and team availability into a schedule that fits declared capacity',
+        'Detect blocking dependencies and impossible deadlines before the work starts',
+        'Let an AI agent investigate delays and propose recovery plans using real planner results, not guesses',
+        'Keep the human in charge: no AI change reaches the task board without explicit approval',
+        'Keep API keys server-side and the whole app runnable locally without a build step'
       ],
       features: [
-        'Responsive service pages with a gallery of completed print works and custom apparel designs',
-        'Print-ready vector artwork recreated from client-supplied low-resolution logos',
-        'Large-format banner and promotional collateral layouts prepared to production specifications',
-        'Sublimation apparel mock-ups used for client approval before a print run',
-        'Material and durability notes so customers could compare print options knowingly'
+        'Project setup with brief, meeting notes, team skills and day-by-day available hours',
+        'Task board with owners, effort estimates, progress, blockers and dependency links',
+        'Scheduler that checks dependency order and allocates work in half-hour blocks against each member’s capacity',
+        'Team & capacity view showing planned hours against what each member declared',
+        'AI coordinator with six scoped tools (such as read_project, evaluate_delay and propose_plan) and a live tool-activity panel',
+        'Review, apply or reject flow — proposals are recalculated on approval and refused if the project changed in the meantime',
+        'Browser persistence plus JSON backup/import and CSV or Markdown report export'
       ],
       methodology: {
-        name: 'Design-to-production handoff',
+        name: 'Specification first, deterministic core, bounded AI on top',
         steps: [
-          'Gathered requirements directly from the client and clarified design specifications',
-          'Rebuilt brand artwork as vectors so it survived large-format printing',
-          'Mocked the design on the real product surface for approval, not on a blank canvas',
-          'Checked material and technical specification against production requirements',
-          'Built the site around the approved assets and coordinated delivery with the production team'
+          'Wrote a build specification with the demonstration flow and acceptance criteria before any code',
+          'Built and tested the planning engine on its own: data validation, dependency ordering and capacity scheduling',
+          'Built the interface on the same shared planner code so browser and server agree on every rule',
+          'Added the AI agent last, limited to tools that call the tested planner instead of inventing schedules',
+          'Covered planner, server security and agent behaviour with automated tests, then ran a live check with Gemini on fictional data'
         ]
       },
       architecture: {
-        caption: 'Asset pipeline: from a client logo file to a print-ready vector, an approved mock-up, and a page that displays it.',
+        caption: 'The browser and the server share one planning engine; the AI agent only works through tools that call it.',
         diagram: '',
         flow: [
-          'Client supplies artwork, often a low-resolution raster',
-          'Recreate and vectorise in Illustrator at production resolution',
-          'Apply to a product mock-up in Photoshop for approval',
-          'Approved asset published on the responsive site',
-          'Same asset released to the print queue at the correct specification'
+          'Team leader enters the brief, notes, team skills and daily availability in the browser',
+          'planner.js validates the data, orders tasks by dependency and allocates half-hour blocks per member',
+          'A request such as “Ali is unavailable on Tuesday” goes to the local Node.js server',
+          'The agent calls scoped tools — read the project, evaluate the delay, propose a plan — each backed by the planner',
+          'The staged proposal streams back with its tool activity, without touching the board',
+          'The leader approves or rejects; approval recalculates the plan and applies exactly the reviewed changes'
         ]
       },
       gallery: [
-        { src: 'assets/covers/fizar.svg', alt: 'Abstract cover with apparel and banner motifs', caption: 'Project cover — concept illustration', kind: 'concept' }
+        { src: 'assets/projects/teampilot-1.jpg', alt: 'TeamPilot overview screen with project progress, upcoming tasks, team capacity bars and the AI project copilot panel', caption: 'Overview screen with a fictional sample project', kind: 'screenshot' },
+        { src: 'assets/covers/teampilot.svg', alt: 'Abstract cover for TeamPilot showing a task schedule grid with an approval check', caption: 'Project cover — concept illustration', kind: 'concept' }
       ],
-      galleryNote: 'Client work is not published without permission. Add cleared screenshots at assets/projects/fizar-1.png.',
       challenges: [
         {
-          problem: 'Client logos arrived as small raster images that pixelated the moment they were scaled for a banner.',
-          solution: 'Recreated and vectorised each logo into high-resolution print-ready artwork in Illustrator and Photoshop before any layout work.'
+          problem: 'An AI model that edits a schedule directly can produce plans that look confident but break dependencies or overload someone.',
+          solution: 'The agent never writes to the board. It can only call tools backed by the tested planner, its output is schema-validated, and every proposal is staged for the leader to approve or reject.'
         },
         {
-          problem: 'Approvals given on a flat preview did not match how ink behaves on fabric.',
-          solution: 'Produced digital product mock-ups on the actual garment and surface, and evaluated sublimation materials and technical specifications so the approval matched the deliverable.'
+          problem: 'A proposal can go stale if the leader edits the project while the agent is still working.',
+          solution: 'Proposals carry the project revision they were built from. On approval the plan is recalculated and refused if the revision changed or any work is left unscheduled.'
         },
         {
-          problem: 'Deadlines were shared with a production team that could not absorb late specification changes.',
-          solution: 'Coordinated print deadlines inside the cross-functional team and held specification sign-off before artwork entered the queue.'
+          problem: 'Browser and server could disagree about what a valid schedule is.',
+          solution: 'Wrote the planner once in plain JavaScript and shared it between the browser and the Node.js server, so both apply exactly the same rules.'
+        },
+        {
+          problem: 'Model availability and free-tier quotas changed during development, and some models were overloaded or retired.',
+          solution: 'Made provider and model selection explicit with a connection test, clear error messages for quota, overload and retired models, and no silent fallback to another provider.'
         }
       ],
       results: {
         metrics: [
-          { k: 'Deliverables', v: 'Site + print assets' },
-          { k: 'Client approvals', v: 'Mock-up based' }
-        ],
-        outcomes: [
-          'A published site carrying the company’s services and completed works',
-          'A reusable print-ready asset set for future campaigns',
-          'Fewer reprint surprises once approvals were based on accurate mock-ups'
-        ]
-      },
-      learnings: [
-        'Front-end and pre-press share a problem: what you display must match what can be produced',
-        'An approval artefact is a contract — building it properly saved a reprint',
-        'Handing over a site the client can maintain themselves is worth more than extra features'
-      ],
-      links: { repo: '', demo: '' },
-      verify: 'Live URL is not on the CV. Get the owner’s permission before linking it.'
-    },
-
-    {
-      id: 'playable-portfolio',
-      title: 'Playable 3D Portfolio',
-      subtitle: 'A three.js WebGL world where the CV is the level design',
-      status: 'Live — you are looking at it',
-      period: '2026',
-      role: 'Designed, modelled and programmed independently',
-      solo: true,
-      categories: ['personal', 'web', 'other'],
-      featured: true,
-      cover: 'assets/covers/playable-portfolio.svg',
-      tech: ['javascript', 'threejs', 'html5', 'css3', 'svg', 'responsive-ui', 'ai-tools'],
-      summary: 'A self-contained 3D run: walk a character between seven checkpoints, each of '
-        + 'which unlocks part of the skill inventory. No game engine, no build step, no '
-        + 'dependencies beyond one three.js file — and it degrades to a readable page.',
-      overview: [
-        'This is the section below the Projects gallery. A procedurally built character walks a '
-          + 'route across a circular island; seven beacons hold the real content — education, '
-          + 'internship, the POS system, SignSpeak, certifications and contact. Reaching one '
-          + 'awards XP and unlocks the skills that project actually used.',
-        'Everything is generated in code: the character is boxes and pivots with a two-bone '
-          + 'walk cycle, the terrain is displaced geometry, and the lighting is a single '
-          + 'shadow-casting directional source. The point was to prove I can build an '
-          + 'interactive experience from scratch rather than assemble a template.'
-      ],
-      problem: 'A CV PDF flattens a student with real systems into a list of bullet points. I '
-        + 'wanted something that showed engineering judgement and gave a visitor a reason to '
-        + 'engage with the material — without becoming the kind of flashy site that hides its '
-        + 'content behind a loading screen.',
-      objectives: [
-        'Render a navigable 3D world with keyboard, mouse and touch controls in vanilla JavaScript',
-        'Gate nothing: every fact in the game must also be reachable as plain text',
-        'Persist progress so a returning visitor resumes where they stopped',
-        'Fall back automatically to the readable version when WebGL is unavailable',
-        'Keep it dependency-light enough to open from a USB stick with no server'
-      ],
-      features: [
-        'Third-follow camera with collision-aware clamping and a smooth beacon-lock during auto-tour',
-        'Two-bone procedural walk cycle, idle bob and directional turning on a box-built character',
-        'Seven checkpoint beacons with proximity triggers, XP awards and level progression',
-        'Skill inventory that fills as checkpoints clear, grouped by discipline',
-        'Keyboard shortcuts 1–7 to auto-walk to any stop, plus a touch D-pad on coarse-pointer devices',
-        'Local save of visited checkpoints and mode, restored on reload',
-        'Print stylesheet and a page mode so the same content works for a recruiter with paper',
-        'A content self-check that fails loudly if a beacon is placed outside the walk radius or two beacons sit close enough to double-trigger'
-      ],
-      methodology: {
-        name: 'System, then content, then guards',
-        steps: [
-          'Proved the render loop, camera follow and input on an empty ground plane first',
-          'Built the character and walk cycle until movement read at a glance',
-          'Placed beacons and wrote the content as data, never inline in the renderer',
-          'Added HUD, inventory and save state against that data layer',
-          'Wrote a structural validator so a future content edit cannot silently break the world',
-          'Tested the no-WebGL path deliberately by disabling the context'
-        ]
-      },
-      architecture: {
-        caption: 'Data drives both surfaces: one content file feeds the 3D world and the readable fallback page.',
-        diagram: 'assets/diagrams/playable-portfolio-flow.svg',
-        flow: [
-          'data.js holds profile, stops, unlocks and world constants',
-          'world.js builds geometry, lighting and beacon props',
-          'avatar.js + camera.js handle movement, turning and follow',
-          'input.js unifies WASD, pointer, keys and D-pad into one intent vector',
-          'hud.js paints XP, inventory, toasts and the checkpoint card',
-          'game.js runs the loop, proximity checks, save state and mode switching',
-          'page.js renders the same data as an accessible document when WebGL is missing'
-        ]
-      },
-      gallery: [
-        { src: 'assets/diagrams/playable-portfolio-flow.svg', alt: 'Module map of the 3D portfolio: data, world, avatar, camera, input, HUD and game loop', caption: 'Module map — how the seven files fit together', kind: 'diagram' },
-        { src: 'assets/covers/playable-portfolio.svg', alt: 'Abstract cover showing beacons on a circular island', caption: 'Project cover — concept illustration of the checkpoint layout', kind: 'concept' }
-      ],
-      galleryNote: 'Add a real capture of the running world at assets/projects/playable-portfolio-1.png.',
-      challenges: [
-        {
-          problem: 'A 3D site that only works for people with a good GPU and no disability is a worse CV, not a better one.',
-          solution: 'Every checkpoint’s content is authored as data, so the same file renders a readable page; WebGL failure switches modes automatically and a print stylesheet covers paper.'
-        },
-        {
-          problem: 'Camera follow felt nauseating when the character turned sharply and clipped through props.',
-          solution: 'Separated desired from actual camera position with damping, clamped to the walk radius, and locked the camera to a beacon frame while a card is open.'
-        },
-        {
-          problem: 'Beacons placed by hand drifted close enough to trigger each other in pairs.',
-          solution: 'Added a structural self-check that validates positions against the walk radius and a minimum beacon spacing, so layout mistakes surface at authoring time instead of during a demo.'
-        },
-        {
-          problem: 'Touch devices needed movement without a keyboard, and a joystick fight with the camera.',
-          solution: 'A four-button D-pad bound to the same intent vector as WASD, shown only on coarse-pointer devices via a media query.'
-        }
-      ],
-      results: {
-        metrics: [
-          { k: 'Dependencies', v: '1 (three.js)' },
-          { k: 'Checkpoints', v: '7' },
-          { k: 'Own code', v: '~2,500 lines' },
+          { k: 'Automated checks', v: '35 passing' },
+          { k: 'Agent tools', v: '6' },
+          { k: 'Team size', v: 'Up to 12' },
           { k: 'Build step', v: 'none' }
         ],
         outcomes: [
-          'Runs from a static folder with no server, bundler or package manager',
-          'Same content reachable three ways: playable, readable and printable',
-          'Now embedded as the 3D showcase section of this site, with the readable version kept intact'
+          'A working local application covering setup, task board, schedule, capacity, recovery and export',
+          'A live recovery run with Gemini moved a task from an unavailable member to a teammate and produced a feasible schedule without changing the board',
+          'Demo videos produced in English and Malay'
         ]
       },
       learnings: [
-        'Rendering was the easy half; input feel and camera damping decide whether anyone keeps playing',
-        'Keeping content out of the render code is what made the fallback page nearly free to build',
-        'A validator over your own data is the cheapest way to stop a fun project rotting'
+        'The reliable part of an AI feature is the deterministic code it is allowed to call — the model should choose, not calculate',
+        'A human review step is a design feature, not a limitation, when the output affects other people’s workload',
+        'Writing the specification and acceptance criteria first made it obvious when the project was actually done'
       ],
-      links: { repo: '', demo: '' },
-      verify: 'Add a line-record count or a screen recording if you want this verifiable to an outside reviewer.'
+      links: { repo: 'https://github.com/nazKnow-IT/TeamPilot', demo: '' },
+      verify: 'The README mentions a competition demonstration. Add the competition name and result here if you want it shown. There is no hosted demo yet.'
     },
 
     {
-      id: 'bim-dataset',
-      title: 'BIM Landmark Dataset & Training Pipeline',
-      subtitle: '117 classes, 15,258 normalised sign sequences, reproducible training',
-      status: 'Built and in use',
-      period: '2025',
-      role: 'Self-directed data engineering and model training work',
+      id: 'mydompet',
+      title: 'MyDompet',
+      subtitle: 'Personal spending tracker with receipt scanning and spending goals',
+      status: 'Working prototype',
+      period: '2026',
+      role: 'Designed and built independently',
       solo: true,
-      categories: ['personal', 'data', 'ai'],
-      featured: false,
-      cover: 'assets/covers/bim-dataset.svg',
-      tech: ['python', 'mediapipe', 'opencv', 'tensorflow', 'lstm', 'cnn', 'model-eval', 'dataset-pipeline', 'numpy'],
-      summary: 'The dataset work behind SignSpeak, done independently: capturing and labelling '
-        + 'sign sequences, extracting 1,662 MediaPipe Holistic keypoints per frame, normalising '
-        + 'them, and shipping isolated training and testing scripts.',
+      categories: ['personal', 'web'],
+      featured: true,
+      cover: 'assets/covers/mydompet.svg',
+      tech: ['javascript', 'html5', 'css3', 'responsive-ui', 'svg', 'tesseract'],
+      summary: 'A lightweight web app for tracking everyday spending in Ringgit: snap a receipt and '
+        + 'it reads the shop, date and total for you, sorts the expense into a category, and shows '
+        + 'how you are doing against daily, weekly and monthly limits.',
       overview: [
-        'Public Malaysian Sign Language data at usable scale does not exist, so the model work '
-          + 'started with building the data. This is the part of SignSpeak that is easy to '
-          + 'underestimate: recording, segmenting and labelling 117 sign classes into 15,258 '
-          + 'sequence files with a consistent feature representation.',
-        'Each sequence is stored as normalised keypoints rather than images, which makes the '
-          + 'training runs small enough to repeat and removes the background as a variable.'
+        'MyDompet (“my wallet”) is a personal finance tracker built for students and young adults '
+          + 'who want to know where their money goes without a bank login or a subscription. '
+          + 'Expenses can be typed in or captured from a photo of the receipt.',
+        'Receipt reading runs entirely in the browser with Tesseract.js OCR. The app compresses '
+          + 'the photo, extracts the text, picks out the merchant, date and total, and suggests a '
+          + 'category from keywords — including local ones like “kopi” and “nasi”. Everything is '
+          + 'stored on the device, so no spending data leaves the phone.'
       ],
-      problem: 'Model results were unreadable while every experiment used a different mix of '
-        + 'raw frames, alphabet samples and ad-hoc captures. Without one normalised dataset '
-        + 'and one isolated training path, there was no way to tell whether a change helped.',
+      problem: 'Small daily purchases — food, transport, e-wallet top-ups — add up without anyone '
+        + 'noticing. Most budgeting apps need a bank connection or an account, and typing every '
+        + 'receipt in by hand is tedious enough that people stop after a week.',
       objectives: [
-        'Assemble a labelled BIM dataset covering 117 sign classes',
-        'Convert video sequences into a fixed-size keypoint feature representation',
-        'Normalise features so camera distance, framing and position stop affecting the signal',
-        'Keep this dataset strictly isolated from earlier experimental collections',
-        'Make training and evaluation reproducible from a single command'
+        'Make logging an expense take seconds, including straight from a receipt photo',
+        'Show spending clearly by day, week, month and category',
+        'Let users set spending limits and see how close they are at a glance',
+        'Keep all data on the user’s own device with no sign-up',
+        'Work well on a phone screen'
       ],
       features: [
-        '15,258 sequence files stored as .npy arrays with a shared 1,662-keypoint layout (pose 132 + face mesh 1,404 + both hands 126)',
-        'Shoulder-midpoint centring with nose-to-shoulder scale normalisation, so each sequence is position and size invariant',
-        'Isolated training script with dedicated label encoder output, never merging legacy datasets',
-        'Class-subset and single-class run flags for fast iteration before committing to a full 117-class epoch',
-        'Separate evaluation script scoring the trained model against random unseen sequences',
-        'PowerShell runners so a full retrain is one command on the project machine'
+        'Receipt scanning: OCR reads the merchant, date and total, then fills in the expense form for checking',
+        'Add, edit and delete expenses, with the receipt photo kept alongside each one',
+        'Automatic category suggestion from merchant and receipt keywords across 11 categories',
+        'Payment method tracking: cash, card, e-wallet and online banking',
+        'Daily spending chart for the month, drawn as SVG',
+        'Spending goals with daily, weekly, monthly and yearly limits and progress bars',
+        'Month-by-month transaction history with CSV export',
+        'Data saved in the browser’s local storage — no account and no server'
       ],
       methodology: {
-        name: 'Data-first, one variable at a time',
+        name: 'Small, phone-first and private by default',
         steps: [
-          'Define the class list and recording protocol before capturing anything',
-          'Extract keypoints offline so the storage format is fixed early',
-          'Normalise and verify a few sequences by eye before trusting a training run',
-          'Train on a ten-class subset to validate the pipeline cheaply',
-          'Scale to the full 117 classes only once the loop is stable',
-          'Evaluate on held-out sequences, not training samples'
+          'Started from the fastest possible manual entry flow before adding any automation',
+          'Added receipt scanning as an optional helper that fills the form, never saving without the user checking',
+          'Tuned the receipt parser against real Malaysian receipt layouts: totals in RM, day-first dates and common headers',
+          'Kept the whole app as static files so it opens anywhere without a backend'
         ]
       },
       architecture: {
-        caption: 'Raw sign videos become fixed-size normalised keypoint tensors that any sequence model can consume.',
-        diagram: 'assets/diagrams/bim-dataset-flow.svg',
+        caption: 'Everything runs in the browser: OCR, parsing, charts and storage.',
+        diagram: '',
         flow: [
-          'Recorded sign videos segmented per class',
-          'Frames decoded with OpenCV',
-          'MediaPipe Holistic extracts 1,662 keypoints per frame',
-          'Sequence centred on the shoulder midpoint and divided by nose-to-shoulder scale',
-          'Saved as .npy under models keyed by class label',
-          'train_normalized_lstm.py builds the Conv1D + BiLSTM classifier',
-          'test_normalized_model.py scores unseen sequences'
+          'User takes or chooses a receipt photo',
+          'Image is resized and compressed on a canvas to speed up reading',
+          'Tesseract.js extracts the receipt text in the browser',
+          'Parser finds the merchant line, the date and the grand total in RM',
+          'Keyword rules suggest a category and the expense form is pre-filled for the user to confirm',
+          'Saved expenses go to local storage and update the chart, goals and history'
         ]
       },
       gallery: [
-        { src: 'assets/diagrams/bim-dataset-flow.svg', alt: 'Dataset pipeline from recorded video to normalised keypoint tensors to training', caption: 'Dataset pipeline', kind: 'diagram' },
-        { src: 'assets/covers/bim-dataset.svg', alt: 'Abstract cover of scattered keypoint clusters', caption: 'Project cover — concept illustration of normalised keypoints', kind: 'concept' }
+        { src: 'assets/projects/mydompet-1.jpg', alt: 'MyDompet home screen with monthly spending, budget remaining, today’s total, recent expenses and the monthly budget bar', caption: 'Home screen with sample expenses', kind: 'screenshot' },
+        { src: 'assets/covers/mydompet.svg', alt: 'Abstract cover for MyDompet showing a receipt next to a phone with a spending chart', caption: 'Project cover — concept illustration', kind: 'concept' }
       ],
-      galleryNote: 'A skeleton-overlay capture from the extractor would be the strongest image here. Add it at assets/projects/bim-dataset-1.png.',
       challenges: [
         {
-          problem: 'Raw landmark coordinates encode where the person stood, not what they signed.',
-          solution: 'Centred every frame on the shoulder midpoint and divided by nose-to-shoulder distance, so the feature vector describes pose shape rather than camera geometry.'
+          problem: 'Receipt photos from a phone are large, and OCR on a full-size image is slow on mobile.',
+          solution: 'Resize every photo to at most 1,800 pixels and re-encode it as JPEG on a canvas before reading, and load the OCR library only when the user first scans.'
         },
         {
-          problem: 'Earlier experimental collections kept leaking into new training runs and silently inflating apparent accuracy.',
-          solution: 'Wrote dedicated train and test scripts bound to one dataset directory with their own label encoder, and documented the isolation guarantee so a future run cannot mix sources.'
+          problem: 'Receipts are inconsistent — many lines contain numbers, and only one of them is the amount actually paid.',
+          solution: 'The parser ranks total lines — grand total, amount due and net total first, then plain total but never subtotal — and reads amounts written as RM14.70, RM 14.70 or 14.70. Testing found that totals printed without a space after RM were being missed, which this fixed.'
         },
         {
-          problem: 'A full 117-class epoch was too slow to iterate against.',
-          solution: 'Added subset flags to train the first ten classes or a named handful, so pipeline bugs get caught in minutes instead of hours.'
+          problem: 'Dates appear in different formats, and day and month can be swapped.',
+          solution: 'Handle both day-first and year-first formats, expand two-digit years, and swap day and month when the month value is impossible.'
         },
         {
-          problem: 'Face-mesh keypoints dominate the vector by count and can swamp hand signal.',
-          solution: 'Kept the full 1,662 layout for compatibility and evaluated hand-region subsets separately when a class depended on finger shape.'
+          problem: 'OCR will sometimes misread a receipt, and a wrong expense is worse than no expense.',
+          solution: 'Scanning only pre-fills the form and tells the user which fields it found. Nothing is saved until the user checks the details and presses save.'
         }
       ],
       results: {
         metrics: [
-          { k: 'Classes', v: '117' },
-          { k: 'Sequences', v: '15,258' },
-          { k: 'Keypoints/frame', v: '1,662' },
-          { k: 'Retrain', v: '1 command' }
+          { k: 'Categories', v: '11' },
+          { k: 'Goal periods', v: '4' },
+          { k: 'Server needed', v: 'none' },
+          { k: 'Account needed', v: 'none' }
         ],
         outcomes: [
-          'A single reproducible feature format shared by every model in SignSpeak',
-          'Training runs cheap enough to repeat, which is what made the normalisation decision testable',
-          'Documentation good enough to hand to someone else without walking them through it'
+          'A working tracker that runs from two static files on any modern phone or laptop browser',
+          'Receipt-to-expense in one scan for clear, well-lit receipts',
+          'Spending data that stays entirely on the user’s device'
         ]
       },
       learnings: [
-        'Most of “machine learning” for an under-resourced language is data engineering',
-        'A normalisation formula is a hypothesis — checking it visually on a few samples first saved days',
-        'Dataset isolation is not bureaucracy; without it every number produced afterwards is unverifiable'
+        'OCR gets you text, but the value is in the parsing rules that turn it into the right fields',
+        'Automation should fill in the form, not make the decision — users trust what they can check',
+        'Keeping everything on the device removed the need for accounts, servers and a privacy policy'
       ],
-      links: { repo: '' },
-      verify: 'If you publish the dataset or its documentation, add the citation or repository here — it is the most defensible artefact in this list.'
+      links: { repo: 'https://github.com/nazKnow-IT/MyDompet', demo: '' },
+      verify: 'If you host it (for example on GitHub Pages), add the live demo link. Confirm the 2026 period.'
     }
   ];
 
   /* --------------------------------------------------------------- derived
-   * three.js is used by the playable portfolio but is not a personal skill
-   * entry; it is registered here so the tech chip still renders and links.
+   * Technologies used by a project that are not personal skill entries;
+   * registered here so the tech chip still renders and links.
    * ---------------------------------------------------------------------- */
   var EXTRA_TECHS = [
-    { id: 'threejs', name: 'three.js', cat: 'tools', blurb: 'WebGL scene graph, geometry and lighting used to build the 3D portfolio.', source: 'self-taught' },
-    { id: 'numpy', name: 'NumPy', cat: 'data', blurb: 'Array storage and feature maths for the landmark sequences.', source: 'academic' }
+    { id: 'threejs', name: 'three.js', cat: 'tools', blurb: 'WebGL scene graph, geometry and lighting used to build the 3D showcase on this site.', source: 'self-taught' },
+    { id: 'agents-sdk', name: 'Agents SDK', cat: 'ai', blurb: 'Agent definitions, scoped tools and structured output for the TeamPilot coordinator.', source: 'self-taught' },
+    { id: 'gemini-api', name: 'Google Gemini API', cat: 'ai', blurb: 'Gemini models called through Google’s OpenAI-compatible endpoint with function calling.', source: 'self-taught' },
+    { id: 'tesseract', name: 'Tesseract.js OCR', cat: 'ai', blurb: 'In-browser text recognition used to read receipts in MyDompet.', source: 'self-taught' }
   ];
 
   function selfCheck() {

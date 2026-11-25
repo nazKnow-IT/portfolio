@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Cover artwork for TeamPilot: a team schedule grid with capacity bars and an approval card">
+  <defs>
+    <linearGradient id="tpbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1f4ec"/><stop offset="1" stop-color="#dfe6d6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#tpbg)"/>
+  <g stroke="#cbd4c0" stroke-width="1">
+    <path d="M0 225h1600M0 450h1600M0 675h1600"/><path d="M400 0v900M800 0v900M1200 0v900"/>
+  </g>
+  <!-- schedule board -->
+  <g transform="translate(110 130)">
+    <rect width="860" height="640" rx="20" fill="#ffffff" stroke="#cbd4c0" stroke-width="2"/>
+    <rect x="36" y="38" width="44" height="44" rx="10" fill="#1f3a2c"/>
+    <text x="49" y="70" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#b8e07a">T</text>
+    <text x="98" y="70" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#1f3a2c">TeamPilot</text>
+    <!-- day columns -->
+    <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#7a8672">
+      <text x="200" y="134">Mon</text><text x="330" y="134">Tue</text><text x="460" y="134">Wed</text><text x="590" y="134">Thu</text><text x="720" y="134">Fri</text>
+    </g>
+    <g stroke="#eef1ea" stroke-width="2"><path d="M180 150v450M310 150v450M440 150v450M570 150v450M700 150v450"/></g>
+    <!-- member rows -->
+    <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#33402c">
+      <circle cx="66" cy="200" r="22" fill="#e3ead8"/><text x="58" y="208">S</text><text x="100" y="208">Sara</text>
+      <circle cx="66" cy="310" r="22" fill="#f3e3d3"/><text x="58" y="318">A</text><text x="100" y="318">Ali</text>
+      <circle cx="66" cy="420" r="22" fill="#e1e3f3"/><text x="56" y="428">M</text><text x="100" y="428">Mei</text>
+      <circle cx="66" cy="530" r="22" fill="#f0dde6"/><text x="58" y="538">D</text><text x="100" y="538">Dan</text>
+    </g>
+    <!-- task blocks -->
+    <g>
+      <rect x="190" y="176" width="240" height="48" rx="10" fill="#9fbf74"/>
+      <rect x="450" y="176" width="110" height="48" rx="10" fill="#9fbf74" opacity=".55"/>
+      <rect x="190" y="286" width="110" height="48" rx="10" fill="#e9a86a"/>
+      <rect x="320" y="286" width="240" height="48" rx="10" fill="none" stroke="#e9a86a" stroke-width="3" stroke-dasharray="10 8"/>
+      <rect x="320" y="396" width="240" height="48" rx="10" fill="#9aa3dc"/>
+      <rect x="580" y="506" width="240" height="48" rx="10" fill="#d79bb5"/>
+      <rect x="450" y="506" width="110" height="48" rx="10" fill="#d79bb5" opacity=".55"/>
+    </g>
+    <!-- dependency arrow -->
+    <path d="M430 200 C 470 200, 470 420, 560 420" fill="none" stroke="#1f3a2c" stroke-width="3" stroke-dasharray="6 6"/>
+    <path d="M550 410l14 10-14 10" fill="none" stroke="#1f3a2c" stroke-width="3"/>
+  </g>
+  <!-- proposal card -->
+  <g transform="translate(1030 220)">
+    <rect width="460" height="460" rx="22" fill="#1f3a2c"/>
+    <text x="40" y="72" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" letter-spacing="3" fill="#b8e07a">RECOVERY PROPOSAL</text>
+    <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#e7efe0">
+      <text x="40" y="132">Ali unavailable Tue</text>
+      <text x="40" y="180" fill="#a9b9a0">Survey analysis → Sara</text>
+      <text x="40" y="224" fill="#a9b9a0">Schedule fits capacity</text>
+    </g>
+    <g fill="#2e5040">
+      <rect x="40" y="258" width="380" height="14" rx="7"/><rect x="40" y="290" width="300" height="14" rx="7"/>
+    </g>
+    <rect x="40" y="330" width="180" height="80" rx="14" fill="#b8e07a"/>
+    <path d="M92 370l22 20 42-44" fill="none" stroke="#1f3a2c" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="240" y="330" width="180" height="80" rx="14" fill="none" stroke="#5f7a6a" stroke-width="3"/>
+    <path d="M308 348l44 44M352 348l-44 44" stroke="#8fa597" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

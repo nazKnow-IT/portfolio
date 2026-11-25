@@ -143,7 +143,7 @@
       ],
       coursework: [],
       courseworkNote: 'Add the diploma module titles here if you want them listed.',
-      projects: ['coop-pos', 'bim-dataset'],
+      projects: ['coop-pos'],
       achievements: [
         'Graduated with CGPA 3.76',
         'Vice-Chancellor’s Award (Anugerah Naib Canselor)',
@@ -165,7 +165,7 @@
         'Recreated and vectorised client logos into high-resolution print-ready artwork in Adobe Illustrator and Photoshop.',
         'Produced digital mock-ups for client approval and synchronised order quantities and specifications into the printing production system.'
       ],
-      projects: ['clickpixel-commerce']
+      projects: []
     },
     {
       org: 'Fizar Enterprise',
@@ -177,7 +177,7 @@
         'Evaluated sublimation materials and production specifications to hold print quality and durability.',
         'Consulted directly with clients to gather requirements and present mock-ups for final production approval.'
       ],
-      projects: ['fizar-website']
+      projects: []
     }
   ];
 

@@ -406,7 +406,7 @@ These are content gaps, not bugs. Each renders as an honest placeholder today; t
 site never invents an answer.
 
 * **GitHub profile URL** (`LINKS.github`) and a **repo URL per project**
-  (`links.repo`). Six projects currently show "repository not linked".
+  (`links.repo`). Four projects currently show "repository not linked".
 * **A live demo URL** where one exists. Client work (`Fizar`, `ClickPixel`) should
   stay unpublished until the company approves it.
 * **Certificate dates and verification URLs** — the five certifications carry no
