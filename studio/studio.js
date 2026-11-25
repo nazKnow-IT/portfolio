@@ -73,7 +73,7 @@
       '<form class="form" id="contactForm"><input name="name" placeholder="Your name" required autocomplete="name"><input name="email" type="email" placeholder="Your email" required autocomplete="email">' +
       '<textarea name="message" rows="3" placeholder="Message" required></textarea><input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">' +
       '<button class="btn" type="submit">Send message</button><p id="formNote" aria-live="polite" style="margin:0"></p></form>' +
-      '<p style="margin-top:12px">I speak ' + (C.LANGUAGES_SPOKEN || []).map(function (l) { return esc(l.name); }).join(' and ') + '. Prefer a game? <a href="../game/">Walk my playable 3D portfolio</a>.</p>' }
+      '<p style="margin-top:12px">I speak ' + (C.LANGUAGES_SPOKEN || []).map(function (l) { return esc(l.name); }).join(' and ') + '.</p>' }
   ];
 
   $('#stops').innerHTML = STOPS.map(function (s, i) {

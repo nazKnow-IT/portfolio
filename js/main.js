@@ -270,7 +270,6 @@
     renderFooter();
     App.initProjects();
     App.initSkills();
-    App.initShowcase();
     App.initContact();
     App.initNav();
     renderEditBanner();

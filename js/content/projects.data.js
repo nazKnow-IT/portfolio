@@ -501,7 +501,7 @@
    * registered here so the tech chip still renders and links.
    * ---------------------------------------------------------------------- */
   var EXTRA_TECHS = [
-    { id: 'threejs', name: 'three.js', cat: 'tools', blurb: 'WebGL scene graph, geometry and lighting used to build the 3D showcase on this site.', source: 'self-taught' },
+    { id: 'threejs', name: 'three.js', cat: 'tools', blurb: 'WebGL scene graph, geometry and lighting used to build the 3D laptop hero and the 3D studio version of this site.', source: 'self-taught' },
     { id: 'agents-sdk', name: 'Agents SDK', cat: 'ai', blurb: 'Agent definitions, scoped tools and structured output for the TeamPilot coordinator.', source: 'self-taught' },
     { id: 'gemini-api', name: 'Google Gemini API', cat: 'ai', blurb: 'Gemini models called through Google’s OpenAI-compatible endpoint with function calling.', source: 'self-taught' },
     { id: 'tesseract', name: 'Tesseract.js OCR', cat: 'ai', blurb: 'In-browser text recognition used to read receipts in MyDompet.', source: 'self-taught' }

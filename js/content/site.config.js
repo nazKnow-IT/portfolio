@@ -87,7 +87,6 @@
     { id: 'education', label: 'Education' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
-    { id: 'showcase', label: '3D Showcase' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -118,7 +117,7 @@
    * index.html and this section picks it up with no code changes.
    * ------------------------------------------------------------------------ */
   var SHOWCASE = {
-    src: 'game/index.html',
+    src: '', // the old 3D game was removed; see /studio/ for the 3D version
     title: 'Playable 3D portfolio — walk a character through seven checkpoints',
     blurb: 'A three.js WebGL world I wrote as a second way into this portfolio. Walk a '
       + 'character between seven checkpoints; each one unlocks part of the skill inventory '
