@@ -375,3 +375,6 @@ h2{font:800 clamp(36px,5vw,64px)/1 var(--body);letter-spacing:-.035em;margin:0 0
   .row{margin-top:18px}.stats{margin-top:20px}
 }
 @media (max-width:760px){ .hero-copy{top:auto;bottom:6vh;display:block} }
+/* the "MIRZA NAZEEF PORTFOLIO" wordmark: capitals read better with a little tracking */
+.mark{letter-spacing:.03em;white-space:nowrap}
+@media (max-width:760px){ .mark{font-size:13px;white-space:normal;line-height:1.15;max-width:12ch} }
