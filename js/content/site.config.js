@@ -60,7 +60,7 @@
     /* Hero counters. Every number is countable from the content below. */
     stats: [
       { value: '4', label: 'documented projects' },
-      { value: '3', label: 'systems deployed for real users' },
+      { value: '3', label: 'systems built for real clients' },
       { value: '5', label: 'certifications completed' },
       { value: '3.86', label: 'degree CGPA' }
     ]

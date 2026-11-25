@@ -115,11 +115,12 @@
           'Client overlays the skeleton and optionally speaks the word'
         ]
       },
+      video: { src: 'assets/projects/signspeak-highlight.mp4', poster: 'assets/projects/signspeak-poster.jpg', caption: 'SignSpeak highlight, 1 min 42 s, narrated in Bahasa Melayu' },
       gallery: [
+        { src: 'assets/projects/signspeak-1.jpg', alt: 'SignSpeak DHH home screen with an SOS button, quick display cards and the text-to-sign and two-way voice tools', caption: 'DHH home screen (demo account)', kind: 'screenshot' },
         { src: 'assets/diagrams/signspeak-flow.svg', alt: 'SignSpeak recognition pipeline from camera capture to translated output', caption: 'Recognition pipeline — authored from the implemented code, not a marketing diagram', kind: 'diagram' },
         { src: 'assets/covers/signspeak.svg', alt: 'Abstract cover for SignSpeak showing a hand skeleton over a phone frame', caption: 'Project cover — concept illustration, not an app screenshot', kind: 'concept' }
       ],
-      galleryNote: 'App screenshots are not included yet. Drop images at assets/projects/signspeak-1.png and add a gallery entry with kind: "screenshot".',
       challenges: [
         {
           problem: 'An image classifier memorised the room. The first baseline worked on the training background and fell apart on a different wall or lighting condition.',
@@ -341,6 +342,7 @@
         ]
       },
       gallery: [
+        { src: 'assets/projects/teampilot-schedule.jpg', alt: 'TeamPilot schedule view: a fictional four-person team with each task placed into the hours each member said they had, beside the Gemini project copilot', caption: 'Schedule built from each member’s real available hours (fictional sample team)', kind: 'screenshot' },
         { src: 'assets/projects/teampilot-1.jpg', alt: 'TeamPilot overview screen with project progress, upcoming tasks, team capacity bars and the AI project copilot panel', caption: 'Overview screen with a fictional sample project', kind: 'screenshot' },
         { src: 'assets/covers/teampilot.svg', alt: 'Abstract cover for TeamPilot showing a task schedule grid with an approval check', caption: 'Project cover — concept illustration', kind: 'concept' }
       ],

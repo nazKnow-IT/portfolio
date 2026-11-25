@@ -3,362 +3,110 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mirza Nazeef bin Mansor — Information Technology Student & Aspiring Developer</title>
-<meta name="description" content="Portfolio of Mirza Nazeef bin Mansor, a final-stage Information Technology student at UTHM: sign language recognition app, campus point-of-sale system, e-commerce platform and dataset engineering work.">
-<meta name="author" content="Mirza Nazeef bin Mansor">
-<meta name="theme-color" content="#f5f6f8">
+<title>Mirza Nazeef — AI and software developer, UTHM IT student</title>
+<meta name="description" content="Mirza Nazeef bin Mansor, final-year IT student at UTHM (CGPA 3.86), builds AI and software that real people use: a Malaysian Sign Language translator, an AI group-project planner and a Gold Medal store POS. Try one of his apps live on the page.">
+<meta name="theme-color" content="#DCE3EA">
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Mirza Nazeef bin Mansor — IT student and aspiring developer">
-<meta property="og:description" content="Four documented projects across web, mobile, AI and data work, presented with the engineering decisions behind each one.">
-<meta property="og:image" content="assets/covers/signspeak.svg">
+<meta property="og:title" content="Mirza Nazeef — AI and software that's already running">
+<meta property="og:description" content="Final-year IT student at UTHM, CGPA 3.86. Sign-language AI, an AI planner for group projects, a Gold Medal store POS, and a spending tracker you can try live.">
+<meta property="og:image" content="https://www.mirzanaz.my/assets/og-image.jpg">
+<meta property="og:url" content="https://www.mirzanaz.my/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.mirzanaz.my/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/print.css" media="print">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Mirza Nazeef bin Mansor",
-  "jobTitle": "Information Technology Student",
-  "email": "mailto:mmirzanazeeff@gmail.com",
-  "url": "",
-  "alumniOf": [
-    { "@type": "CollegeOrUniversity", "name": "Universiti Tun Hussein Onn Malaysia" }
-  ],
-  "knowsAbout": ["Web development", "Computer vision", "Python", "PHP", "Data analytics", "Flutter"]
-}
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;800;900&family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" id="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="#home" aria-label="Mirza Nazeef bin Mansor — back to top">
-      <span class="brand-mark" aria-hidden="true">MN</span>
-      <span class="brand-text">
-        <strong id="brand-name">Mirza Nazeef bin Mansor</strong>
-        <small id="brand-role">Bachelor of Information Technology with Honours Student</small>
-      </span>
-    </a>
+<nav class="top" id="top">
+  <a class="mark" href="#">Mirza Nazeef</a>
+  <div class="links">
+    <a href="#work">Work</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+    <a class="alt" href="studio/" title="Switch to the 3D studio version of this portfolio">3D version</a>
+    <a class="cv" id="cvLink" href="#">Download CV</a>
+  </div>
+</nav>
 
-    <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <ul class="nav-list" id="nav-list"><!-- filled from js/content/site.config.js --></ul>
-    </nav>
+<!-- Stage 1+2: desk hero, zoom into the laptop, then the live app -->
+<section class="desk" id="desk">
+  <div class="desk-pin">
+    <canvas id="stage" aria-hidden="true"></canvas>
+    <div class="hero-copy" id="heroCopy">
+      <h1>AI and software that's already running.</h1>
+      <p>I'm Mirza, an IT student who builds real systems: a sign-language translator powered by computer vision, an AI planner for group projects, and a store checkout used by real staff. Scroll into the laptop and try one.</p>
+      <div class="row">
+        <a class="btn" href="#work">See my projects</a>
+        <span class="open"><i></i>Open to internships</span>
+      </div>
+      <dl class="stats" id="stats"></dl>
+    </div>
 
-    <div class="header-actions">
-      <a class="btn btn-primary btn-sm" id="nav-cv" href="assets/cv/Mirza-Nazeef-CV.pdf" download>
-        <span class="btn-ico" aria-hidden="true">↓</span> CV
-      </a>
-      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="sr-only">Menu</span>
-      </button>
+    <!-- the real MyDompet app, placed exactly over the laptop screen once zoomed -->
+    <!-- locked by default so the page always scrolls; visitors choose to start it -->
+    <div class="live locked" id="live" hidden>
+      <iframe id="app" title="MyDompet, a live spending tracker you can try" src="about:blank" loading="lazy" tabindex="-1"></iframe>
+      <button class="try" id="tryApp" type="button"><b>Try MyDompet live</b><span>A real spending tracker, running right here</span></button>
+    </div>
+    <div class="live-note" id="liveNote" aria-live="polite">
+      <span id="liveText"><b>MyDompet is live.</b> Add an expense, open Goals or Insights. <a href="https://github.com/nazKnow-IT/MyDompet">See the code</a></span>
+      <button type="button" id="doneApp">Done, keep scrolling</button>
     </div>
   </div>
-</header>
+</section>
 
-<main id="main">
+<!-- Stage 3: dark editorial project sections, generated from projects.data.js -->
+<div class="dark">
+  <section class="intro" id="work">
+    <h2>More things I've built</h2>
+    <p>Each one solved a real problem for real people. Open any project for the full story: the problem, my decisions and the results.</p>
+  </section>
+  <div id="projects"></div>
 
-  <!-- ================================================================ hero -->
-  <section class="hero section" id="home" aria-labelledby="hero-title">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow" id="hero-eyebrow"></p>
-        <h1 id="hero-title"></h1>
-        <p class="hero-tagline" id="hero-tagline"></p>
-        <p class="hero-role" id="hero-role"></p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects" data-scroll>Explore projects <span aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" id="hero-cv" href="#" download>Download CV</a>
-        </div>
-        <ul class="social-row" id="hero-social"></ul>
-      </div>
-      <div class="hero-aside">
-        <figure class="portrait">
-          <img id="hero-photo" src="assets/img/profile.png" alt="Portrait of Mirza Nazeef bin Mansor" width="284" height="282">
-          <figcaption id="hero-location"></figcaption>
-        </figure>
-        <dl class="stat-strip" id="hero-stats"></dl>
-      </div>
-    </div>
-    <p class="scroll-cue" aria-hidden="true"><span>↓</span> scroll</p>
+  <!-- CV sections, built in the same layout as the projects (see js/home.js) -->
+  <div id="cvSections"></div>
+
+  <section class="design" id="design" data-bg="#0E1116" aria-labelledby="design-h">
+    <h2 id="design-h">Design work</h2>
+    <p>Interface, poster and brand pieces are on their way.</p>
+    <div class="slots"><div></div><div></div><div></div></div>
   </section>
 
-  <!-- =============================================================== about -->
-  <section class="section" id="about" aria-labelledby="about-title">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="kicker">01 — About me</p>
-        <h2 id="about-title">How I got here and what I do about it</h2>
-      </header>
-      <div class="about-grid">
-        <div class="prose" id="about-body"></div>
-        <aside class="panel" id="about-side"></aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================== education -->
-  <section class="section section-alt" id="education" aria-labelledby="education-title">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="kicker">02 — Education</p>
-        <h2 id="education-title">Academic background</h2>
-        <p class="section-lede" id="education-lede"></p>
-      </header>
-      <div class="timeline" id="education-list"></div>
-      <div class="exp-block">
-        <h3 class="sub-title">Where I have worked</h3>
-        <div class="exp-grid" id="experience-list"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================== skills -->
-  <section class="section" id="skills" aria-labelledby="skills-title">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="kicker">03 — Skills</p>
-        <h2 id="skills-title">Technology explorer</h2>
-        <p class="section-lede">
-          Pick a technology to see the projects that actually used it. No proficiency bars —
-          if it is listed, it is something I have studied or shipped with.
-        </p>
-      </header>
-
-      <div class="toolbar" role="search">
-        <label class="field-grow">
-          <span class="sr-only">Search technologies</span>
-          <input type="search" id="skill-search" class="input" placeholder="Search a technology — PHP, MediaPipe, Flutter…" autocomplete="off">
-        </label>
-        <p class="result-count" id="skill-count" role="status" aria-live="polite"></p>
-      </div>
-
-      <div class="chip-row" id="skill-filters" role="group" aria-label="Filter technologies by category"></div>
-      <div class="skill-groups" id="skill-groups"></div>
-
-      <div class="tech-detail" id="tech-detail" hidden aria-live="polite"></div>
-
-      <div class="spoken-langs" id="spoken-langs"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================ projects -->
-  <section class="section section-alt" id="projects" aria-labelledby="projects-title">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="kicker">04 — Projects</p>
-        <h2 id="projects-title">Project gallery</h2>
-        <p class="section-lede">
-          Four projects, each with the problem it started from, the decisions I made and what
-          actually came out of it. Filter by type, or search a name, description or technology.
-        </p>
-      </header>
-
-      <div class="toolbar" role="search">
-        <label class="field-grow">
-          <span class="sr-only">Search projects by name, description or technology</span>
-          <input type="search" id="project-search" class="input" placeholder="Search projects — barcode, Flutter, payment…" autocomplete="off">
-        </label>
-        <button type="button" class="btn btn-quiet" id="project-reset">Clear</button>
-        <p class="result-count" id="project-count" role="status" aria-live="polite"></p>
-      </div>
-
-      <div class="chip-row" id="project-filters" role="group" aria-label="Filter projects by category"></div>
-
-      <div class="project-grid" id="project-grid"></div>
-      <div class="empty-state" id="project-empty" hidden>
-        <p class="empty-mark" aria-hidden="true">⌕</p>
-        <h3>No projects match that</h3>
-        <p id="project-empty-msg"></p>
-        <button type="button" class="btn btn-ghost" id="project-empty-reset">Reset filters</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ showcase -->
-  <section class="section" id="showcase" aria-labelledby="showcase-title">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="kicker">05 — 3D showcase</p>
-        <h2 id="showcase-title">The playable version of this portfolio</h2>
-        <p class="section-lede" id="showcase-lede"></p>
-      </header>
-
-      <div class="showcase-frame" id="showcase-frame">
-        <div class="showcase-poster" id="showcase-poster">
-          <p class="poster-title">3D portfolio world</p>
-          <p class="poster-copy">WebGL scene, seven checkpoints, keyboard and touch controls.</p>
-          <button type="button" class="btn btn-primary" id="showcase-load">Load the 3D world</button>
-          <p class="poster-note" id="showcase-note">Loads on demand — it asks your GPU to work.</p>
-        </div>
-        <iframe id="showcase-frame-el" title="Playable 3D portfolio" loading="lazy"
-                allow="fullscreen" hidden></iframe>
-      </div>
-
-      <div class="showcase-bar">
-        <div class="key-legend" id="showcase-controls"></div>
-        <div class="showcase-actions">
-          <button type="button" class="btn btn-ghost btn-sm" id="showcase-reload">Restart world</button>
-          <button type="button" class="btn btn-ghost btn-sm" id="showcase-focus">Give it keyboard focus</button>
-          <a class="btn btn-ghost btn-sm" id="showcase-open" href="game/index.html" target="_blank" rel="noopener">Open fullscreen ↗</a>
-        </div>
-      </div>
-      <p class="showcase-hint">
-        Want to swap this for another build? Replace the files in <code>game/</code> — the frame
-        reads <code>game/index.html</code> and needs no code changes.
-      </p>
-    </div>
-  </section>
-
-  <!-- ====================================================== certifications -->
-  <section class="section section-alt" id="certifications" aria-labelledby="certifications-title">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="kicker">06 — Certifications &amp; achievements</p>
-        <h2 id="certifications-title">Verified learning and faculty recognition</h2>
-      </header>
-      <div class="cert-grid" id="cert-list"></div>
-      <div class="award-block">
-        <h3 class="sub-title">Awards &amp; honours</h3>
-        <ul class="award-list" id="award-list"></ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================= contact -->
-  <section class="section" id="contact" aria-labelledby="contact-title">
-    <div class="wrap contact-grid">
+  <footer class="contact" id="contact" data-bg="#0E1116">
+    <p class="bigtalk" id="bigTalk" aria-hidden="true">Let's build something.</p>
+    <div class="two">
       <div>
-        <header class="section-head">
-          <p class="kicker">07 — Contact</p>
-          <h2 id="contact-title">Let’s talk about what you need built</h2>
-        </header>
-        <div class="prose" id="contact-copy"></div>
-        <ul class="contact-list" id="contact-list"></ul>
+        <h2>Need someone who ships?</h2>
+        <p>Open to internships in software and AI.</p>
+        <div class="row">
+          <a class="btn" id="mailLink" href="#">Email me</a>
+          <a class="btn ghost" id="waLink" href="#">WhatsApp</a>
+          <a class="btn ghost" id="liLink" href="#">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/nazKnow-IT">GitHub</a>
+        </div>
+        <p class="langs" id="langs"></p>
+        <p class="game">Prefer to explore? <a href="game/">Walk my playable 3D portfolio</a>.</p>
       </div>
-      <div class="contact-form-wrap">
-        <form id="contact-form" class="contact-form" novalidate>
-          <h3 class="sub-title">Send a message</h3>
-          <p class="form-note" id="form-note"></p>
-          <div class="hp-field" aria-hidden="true">
-            <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
-          </div>
-          <div class="form-row">
-            <label class="form-field">
-              <span class="form-label">Your name <span class="req" aria-hidden="true">*</span></span>
-              <input class="input" type="text" name="name" id="cf-name" required aria-required="true"
-                     autocomplete="name" aria-describedby="err-name" minlength="2">
-              <span class="form-error" id="err-name" role="alert"></span>
-            </label>
-            <label class="form-field">
-              <span class="form-label">Email <span class="req" aria-hidden="true">*</span></span>
-              <input class="input" type="email" name="email" id="cf-email" required aria-required="true"
-                     autocomplete="email" aria-describedby="err-email">
-              <span class="form-error" id="err-email" role="alert"></span>
-            </label>
-          </div>
-          <label class="form-field">
-            <span class="form-label">Subject</span>
-            <input class="input" type="text" name="subject" id="cf-subject" maxlength="140">
-          </label>
-          <label class="form-field">
-            <span class="form-label">Message <span class="req" aria-hidden="true">*</span></span>
-            <textarea class="input" name="message" id="cf-message" required aria-required="true"
-                      rows="5" minlength="10" aria-describedby="err-message"></textarea>
-            <span class="form-error" id="err-message" role="alert"></span>
-          </label>
-          <div class="form-foot">
-            <button type="submit" class="btn btn-primary" id="cf-submit">Send message</button>
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          </div>
-        </form>
-      </div>
+      <form class="form" id="contactForm">
+        <label>Your name<input name="name" required autocomplete="name"></label>
+        <label>Your email<input name="email" type="email" required autocomplete="email"></label>
+        <label>Message<textarea name="message" rows="4" required></textarea></label>
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Send message</button>
+        <p class="formnote" id="formNote" aria-live="polite"></p>
+      </form>
     </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div class="footer-id">
-      <p class="footer-name" id="footer-name"></p>
-      <p class="footer-copy" id="footer-copy"></p>
-    </div>
-    <nav class="footer-nav" aria-label="Footer">
-      <ul id="footer-links"></ul>
-    </nav>
-    <ul class="social-row" id="footer-social"></ul>
-  </div>
-  <div class="wrap footer-meta">
-    <p id="footer-built"></p>
-    <button type="button" class="link-btn" id="back-to-top">Back to top ↑</button>
-  </div>
-</footer>
-
-<!-- project detail dialog -->
-<div class="modal-root" id="project-modal" hidden>
-  <div class="modal-backdrop" data-close></div>
-  <div class="modal-shell" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
-    <header class="modal-head">
-      <p class="modal-kicker" id="modal-kicker"></p>
-      <h2 id="modal-title"></h2>
-      <p class="modal-sub" id="modal-sub"></p>
-      <button type="button" class="modal-close" data-close aria-label="Close project details">✕</button>
-    </header>
-    <div class="modal-body" id="modal-body"></div>
-    <footer class="modal-foot">
-      <button type="button" class="btn btn-quiet btn-sm" id="modal-prev">← Previous</button>
-      <button type="button" class="btn btn-quiet btn-sm" id="modal-next">Next →</button>
-      <button type="button" class="btn btn-ghost btn-sm" data-close>Close</button>
-    </footer>
-  </div>
+  </footer>
 </div>
-
-<!-- screenshot / diagram lightbox -->
-<div class="lightbox" id="lightbox" hidden>
-  <div class="lightbox-backdrop" data-close></div>
-  <figure class="lightbox-figure">
-    <img id="lightbox-img" src="" alt="">
-    <figcaption id="lightbox-caption"></figcaption>
-    <div class="lightbox-bar">
-      <button type="button" class="btn btn-ghost btn-sm" id="lightbox-prev" aria-label="Previous image">←</button>
-      <span id="lightbox-index"></span>
-      <button type="button" class="btn btn-ghost btn-sm" id="lightbox-next" aria-label="Next image">→</button>
-      <button type="button" class="btn btn-quiet btn-sm" data-close>Close (Esc)</button>
-    </div>
-  </figure>
-</div>
-
-<div class="edit-banner" id="edit-banner" hidden>
-  <strong>Editing view</strong> — the notes below are only visible with <code>?edit=1</code> in the URL.
-  <div id="edit-notes"></div>
-</div>
-
-<noscript>
-  <div class="noscript-note">
-    This portfolio renders its project and skills data with JavaScript. The CV download and the
-    <a href="game/index.html">readable version of the 3D showcase</a> both work without it.
-    Email: <a href="mailto:mmirzanazeeff@gmail.com">mmirzanazeeff@gmail.com</a>
-  </div>
-</noscript>
 
 <script src="js/content/site.config.js"></script>
 <script src="js/content/skills.data.js"></script>
 <script src="js/content/projects.data.js"></script>
-<script src="js/modules/util.js"></script>
-<script src="js/modules/icons.brand.js"></script>
-<script src="js/modules/icons.js"></script>
-<script src="js/modules/nav.js"></script>
-<script src="js/modules/projects.js"></script>
-<script src="js/modules/skills.js"></script>
-<script src="js/modules/showcase.js"></script>
-<script src="js/modules/contact.js"></script>
-<script src="js/main.js"></script>
+<script src="game/libs/three.min.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>

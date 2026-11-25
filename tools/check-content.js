@@ -93,8 +93,8 @@ if (SITE.contactForm.enabled) {
     'contactForm.endpoint should deliver to the same address as links.email');
 }
 SITE.nav.forEach((n) => {
-  const hay = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-  check(hay.includes(`id="${n.id}"`), `nav entry "${n.id}" has no matching section id in index.html`);
+  const hay = fs.readFileSync(path.join(ROOT, 'work.html'), 'utf8');
+  check(hay.includes(`id="${n.id}"`), `nav entry "${n.id}" has no matching section id in work.html`);
 });
 
 /* ---------------------------------------------------------- report */

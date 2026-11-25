@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mirza Studio — the 3D version of Mirza Nazeef’s portfolio</title>
+<meta name="description" content="Walk through Mirza Nazeef’s portfolio as a 3D studio: projects, education, awards, certificates, experience and skills, one room at a time.">
+<meta property="og:image" content="https://www.mirzanaz.my/assets/og-image.jpg">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="studio.css">
+</head>
+<body>
+<canvas id="world" aria-hidden="true"></canvas>
+
+<nav class="top">
+  <a class="mark" href="#stop-0">Mirza Nazeef</a>
+  <ol class="rooms" id="roomNav" aria-label="Rooms"></ol>
+  <a class="alt" href="../" title="Switch to the classic version of this portfolio">Classic version</a>
+  <a class="cv" id="cvLink" href="#">Download CV</a>
+</nav>
+
+<!-- each stop is one camera position in the studio; its panel sits beside the room -->
+<main id="stops"></main>
+
+<div class="modal" id="appModal" hidden>
+  <div class="modal-box" role="dialog" aria-label="MyDompet, live">
+    <button class="close" id="closeApp" aria-label="Close the live app">Close</button>
+    <iframe id="appFrame" title="MyDompet, a live spending tracker" src="about:blank"></iframe>
+  </div>
+</div>
+
+<script src="../js/content/site.config.js"></script>
+<script src="../js/content/skills.data.js"></script>
+<script src="../js/content/projects.data.js"></script>
+<script src="../game/libs/three.min.js"></script>
+<script src="world.js"></script>
+<script src="studio.js"></script>
+</body>
+</html>

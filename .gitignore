@@ -11,3 +11,7 @@ npm-debug.log*
 
 # Anything you drop in here while drafting stays on your machine
 drafts/
+
+# Design concepts and local agent settings (kept on this machine)
+concept/
+.claude/
