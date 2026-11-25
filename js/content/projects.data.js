@@ -493,6 +493,109 @@
       ],
       links: { repo: 'https://github.com/nazKnow-IT/MyDompet', demo: '' },
       verify: 'If you host it (for example on GitHub Pages), add the live demo link. Confirm the 2026 period.'
+    },
+
+    {
+      id: 'dapurkita',
+      title: 'DapurKita',
+      subtitle: 'A smart family kitchen: pantry, shopping list and recipes in one app',
+      status: 'In progress',
+      period: '2026',
+      role: 'Designed and built independently',
+      solo: true,
+      categories: ['personal', 'web', 'ai'],
+      featured: true,
+      cover: 'assets/projects/dapurkita-1.jpg',
+      tech: ['nextjs', 'react', 'typescript', 'tailwind', 'supabase', 'rest-api', 'gemini-api', 'camera-capture', 'responsive-ui'],
+      summary: 'A phone-first web app for a Malaysian family kitchen. It tracks what is in the '
+        + 'fridge, freezer and cupboard, reads shopping receipts with AI, builds the shopping list '
+        + 'on its own and checks chef recipes against what you already have.',
+      overview: [
+        'DapurKita (“our kitchen”) is built around how a Malaysian household really shops: one '
+          + 'person knows what the kitchen needs, and someone else is sent to the shop. The app '
+          + 'keeps the pantry by location with stock levels and expiry dates, and puts low or '
+          + 'finished items on the shopping list automatically.',
+        'Items can be added by scanning a barcode with the phone camera (looked up on Open Food '
+          + 'Facts), by hand, or by photographing a receipt, which an AI model reads into a list '
+          + 'to review before saving. The shopper gets a no-login link with a live checklist, and '
+          + 'the Masak page checks credited chef recipes against the pantry.'
+      ],
+      problem: 'Families waste food that expires at the back of the fridge, buy things they already '
+        + 'have, and send the wrong person to the shop with a vague list. When an item is out of '
+        + 'stock, the shopper has to call home to ask what to buy instead.',
+      objectives: [
+        'Show at a glance what is running low or about to expire',
+        'Make adding groceries fast: barcode, receipt photo or a few taps',
+        'Turn low items into a shopping list that can be sent on WhatsApp',
+        'Let the shopper tick items off and ask for a replacement without an account',
+        'Suggest what to cook from what is already in the kitchen'
+      ],
+      features: [
+        'Pantry by location (peti sejuk, freezer, almari) with stock levels or counts and expiry dates',
+        'Barcode scanning with the phone camera, with product lookup from Open Food Facts',
+        'Receipt scanning: an AI model reads the items from a photo, and nothing is saved until it is reviewed',
+        'Automatic shopping list for low and finished items, shared on WhatsApp',
+        '“Mode Abang”: a no-login checklist for the shopper; “Dah beli” restocks the pantry and “Tak ada” asks for a replacement, updated live',
+        'Masak: chef recipes, credited and linked to the original video, matched against the pantry, with missing ingredients added to the list in one tap',
+        'Phone layout with a bottom bar and a desktop layout with a sidebar, installable as a web app'
+      ],
+      methodology: {
+        name: 'Built for one real household first',
+        steps: [
+          'Mapped how the family actually shops: who checks the kitchen, who goes to the shop, and what goes wrong',
+          'Built the pantry and shopping list first, then added barcode and receipt scanning as shortcuts',
+          'Kept AI keys on the server and made every AI result a draft the user confirms',
+          'Wrote the interface in Bahasa Melayu for the people who will use it'
+        ]
+      },
+      architecture: {
+        caption: 'A Next.js app whose API routes talk to the database, Open Food Facts and the AI model; keys never reach the phone.',
+        diagram: '',
+        flow: [
+          'Phone or laptop opens the Next.js app (App Router, React, Tailwind CSS)',
+          'API routes read and write the pantry and shopping list in Supabase (Postgres)',
+          'Barcode scans are looked up on Open Food Facts',
+          'Receipt photos go to an OpenAI-compatible AI endpoint (Google Gemini), with fallback models when one is busy',
+          'The shopper’s link polls the list every few seconds so swaps and restocks show live'
+        ]
+      },
+      gallery: [
+        { src: 'assets/projects/dapurkita-1.jpg', alt: 'DapurKita home screen on desktop: five items needing attention, with expiry and low-stock labels, and a recipe suggestion', caption: 'Home: what needs attention today (sample pantry)', kind: 'screenshot' },
+        { src: 'assets/projects/dapurkita-dapur.jpg', alt: 'DapurKita pantry page with twelve items filtered by fridge, freezer and cupboard', caption: 'Dapur: the whole pantry by location', kind: 'screenshot' },
+        { src: 'assets/projects/dapurkita-masak.jpg', alt: 'DapurKita recipe page checking Ayam Tiram Thai ingredients against the pantry', caption: 'Masak: a credited chef recipe checked against the pantry', kind: 'screenshot' },
+        { src: 'assets/projects/dapurkita-phone.jpg', alt: 'DapurKita home screen on a phone with the bottom navigation bar', caption: 'The same home screen on a phone', kind: 'screenshot' }
+      ],
+      challenges: [
+        {
+          problem: 'Free AI models are often busy or rate-limited, which would break receipt scanning at the worst moment.',
+          solution: 'Try the main model first and fall back to other models automatically on a busy or rate-limit response.'
+        },
+        {
+          problem: 'The person at the shop should not need an account, but the list must not be public.',
+          solution: 'Each shopping trip gets a private link with a random token, and the shopper can only tick items or ask for a swap.'
+        },
+        {
+          problem: 'Recipes belong to the chefs who made them.',
+          solution: 'Only the ingredient list is used, the chef is credited, and the app links to the original video for the method.'
+        }
+      ],
+      results: {
+        metrics: [
+          { k: 'Ways to add items', v: '3' },
+          { k: 'Pantry locations', v: '3' },
+          { k: 'Shopper login', v: 'none' }
+        ],
+        outcomes: [
+          'Pantry, shopping list, shopper link and recipe matching are working in development',
+          'Next: connect Supabase and deploy it for the family to use daily'
+        ]
+      },
+      learnings: [
+        'Designing for two roles — the one who plans and the one who shops — shaped every screen',
+        'AI is most useful here as a fast first draft that a person checks'
+      ],
+      links: { repo: '', demo: '' },
+      verify: 'In progress. Add the GitHub link and the live link once it is pushed and deployed.'
     }
   ];
 
@@ -504,7 +607,8 @@
     { id: 'threejs', name: 'three.js', cat: 'tools', blurb: 'WebGL scene graph, geometry and lighting used to build the 3D laptop hero and the 3D studio version of this site.', source: 'self-taught' },
     { id: 'agents-sdk', name: 'Agents SDK', cat: 'ai', blurb: 'Agent definitions, scoped tools and structured output for the TeamPilot coordinator.', source: 'self-taught' },
     { id: 'gemini-api', name: 'Google Gemini API', cat: 'ai', blurb: 'Gemini models called through Google’s OpenAI-compatible endpoint with function calling.', source: 'self-taught' },
-    { id: 'tesseract', name: 'Tesseract.js OCR', cat: 'ai', blurb: 'In-browser text recognition used to read receipts in MyDompet.', source: 'self-taught' }
+    { id: 'tesseract', name: 'Tesseract.js OCR', cat: 'ai', blurb: 'In-browser text recognition used to read receipts in MyDompet.', source: 'self-taught' },
+    { id: 'nextjs', name: 'Next.js', cat: 'web', blurb: 'React framework with server API routes, used for DapurKita.', source: 'self-taught' }
   ];
 
   function selfCheck() {

@@ -16,16 +16,16 @@
   $('#liLink').href = SITE.links.linkedin || '#';
 
   /* ------------------------------------------------ project gallery */
-  var ACCENT = { 'signspeak': '#5CE1E6', 'coop-pos': '#FFB547', 'teampilot': '#FF4F2E' };
+  var ACCENT = { 'signspeak': '#5CE1E6', 'coop-pos': '#FFB547', 'teampilot': '#FF4F2E', 'dapurkita': '#F5B800' };
   var SHORT = { 'coop-pos': 'Coop POS' };
   // honest notes for projects whose picture is not a real screenshot
-  var IMAGE_NOTE = { 'coop-pos': 'The picture is an illustration. The live system runs inside the UTHM cooperative store and isn’t public.' };
+  var IMAGE_NOTE = { 'dapurkita': 'Still being built. The screenshot uses the app’s own sample pantry.', 'coop-pos': 'The picture is an illustration. The live system runs inside the UTHM cooperative store and isn’t public.' };
   var skillName = {};
   (C && C.SKILLS || []).forEach(function (s) { skillName[s.id] = s.name; });
   (P && P.EXTRA_TECHS || []).forEach(function (s) { skillName[s.id] = s.name; });
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   // AI projects first (the headline promises AI), then the shipped Gold Medal system
-  var ORDER = ['signspeak', 'teampilot', 'coop-pos'];
+  var ORDER = ['signspeak', 'teampilot', 'coop-pos', 'dapurkita'];
   var list = (P ? P.PROJECTS : []).filter(function (p) { return p.id !== 'mydompet'; })
     .sort(function (a, b) { var x = ORDER.indexOf(a.id), y = ORDER.indexOf(b.id); return (x < 0 ? 99 : x) - (y < 0 ? 99 : y); });
   // the strongest image for each project: a real screenshot if there is one, else the cover
