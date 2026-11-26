@@ -8,7 +8,7 @@
   --body:'Figtree', system-ui, sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:clip}
 body{margin:0;background:var(--mist);color:var(--ink);font:17px/1.6 var(--body)}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:6px}
@@ -52,6 +52,9 @@ h2{font:800 clamp(36px,5vw,64px)/1 var(--body);letter-spacing:-.035em;margin:0 0
 .intro p,.design p,.contact p{color:var(--dim);font-size:19px;margin:0;max-width:46ch}
 
 .project{position:relative;min-height:110vh;padding:110px clamp(18px,4vw,48px) 90px;overflow:hidden;border-top:1px solid rgba(232,236,239,.08)}
+/* clip, not just hide: a hidden box can still be scrolled sideways (trackpad, tilt wheel,
+   focus), which slid the text off the left edge; a clipped box cannot move at all */
+.project,.desk-pin,.live{overflow:clip}
 .project h3{margin:0;font:900 clamp(76px,17vw,250px)/.82 var(--big);text-transform:uppercase;color:var(--accent);letter-spacing:-.005em;position:relative;z-index:1}
 .project .shot{position:absolute;right:-6vw;top:clamp(150px,24vh,240px);width:min(56vw,900px);border-radius:14px;box-shadow:0 40px 90px rgba(0,0,0,.55);
   background:#151a22;will-change:transform;z-index:2}
