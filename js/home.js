@@ -272,7 +272,7 @@
   // phones: camera aims below the desk so the devices sit above the headline
   var NARROW_WIDE = { pos: new THREE.Vector3(.2, 9, 22), look: new THREE.Vector3(.2, -3.4, 0) };
   var SCREEN = { pos: new THREE.Vector3(), look: new THREE.Vector3() };
-  var tmpN = new THREE.Vector3(), tmpQ = new THREE.Quaternion();
+  var tmpN = new THREE.Vector3(), tmpQ = new THREE.Quaternion(), camUp = new THREE.Vector3();
   // a shot that puts the laptop screen square to the camera, filling ~88% of the view
   // on a phone-sized window the target is the 3D phone, so the app gets its phone layout
   var target = screen, TW = SW, TH = SH;
@@ -286,7 +286,7 @@
     target.getWorldPosition(SCREEN.look);
     target.getWorldQuaternion(tmpQ);
     tmpN.set(0, 0, 1).applyQuaternion(tmpQ);
-    var k = innerWidth < 760 ? .82 : .88, half = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));
+    var k = innerWidth < 760 ? .78 : .88, half = Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));
     var d = Math.max((TH / 2) / (k * half), (TW / 2) / (k * half * cam.aspect));
     SCREEN.pos.copy(SCREEN.look).addScaledVector(tmpN, d);
   }
@@ -332,7 +332,8 @@
     // on narrow screens let it use its own phone layout instead
     // (zoom is applied inside the app's own document: it is same-origin, and unlike a
     // transformed iframe it keeps clicks, scrolling and rendering exact)
-    var s = w < 700 ? 1 : w / 1280;
+    // (very small phones: lay it out at 320px and shrink, so no card is cut off)
+    var s = w < 700 ? Math.min(1, w / 320) : w / 1280;
     app.style.width = w + 'px'; app.style.height = h + 'px';
     try {
       var root = app.contentDocument && app.contentDocument.documentElement;
@@ -389,6 +390,10 @@
     tgt.pos.copy(start.pos).lerp(SCREEN.pos, zoom); tgt.look.copy(start.look).lerp(SCREEN.look, zoom);
     var k = reduce || zoom > .98 ? 1 : .09;
     cur.pos.lerp(tgt.pos, k); cur.look.lerp(tgt.look, k);
+    // roll with the screen as we zoom in, so a turned device (the 3D phone) ends up
+    // perfectly upright and the live app's straight box lines up with its frame
+    camUp.set(0, 1, 0).applyQuaternion(tmpQ);
+    cam.up.set(0, 1, 0).lerp(camUp, zoom).normalize();
     cam.position.copy(cur.pos); cam.lookAt(cur.look);
 
     heroCopy.style.opacity = clamp(1 - p / .12, 0, 1);

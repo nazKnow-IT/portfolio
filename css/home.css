@@ -81,7 +81,11 @@ h2{font:800 clamp(36px,5vw,64px)/1 var(--body);letter-spacing:-.035em;margin:0 0
   .project .shot{position:relative;right:auto;top:auto;width:100%;margin-top:28px}
   .project .copy{max-width:none}
   .slots{grid-template-columns:1fr}
-  .live-note{white-space:normal;width:calc(100% - 36px);text-align:center}
+  /* on phones the bar moves to the top (the nav hides while the app is open),
+     so it never covers the app's own bottom buttons */
+  .live-note{top:max(10px,env(safe-area-inset-top));bottom:auto;transform:translate(-50%,-20px);font-size:14px;padding:6px 6px 6px 16px;gap:10px}
+  .live-note .long{display:none}
+  .live-note button{padding:7px 14px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
