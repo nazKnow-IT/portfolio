@@ -30,7 +30,7 @@ a{color:inherit}
 
 /* desk: a tall pinned stage; scroll drives the camera */
 .desk{height:330vh;position:relative}
-.desk-pin{position:sticky;top:0;height:100vh;overflow:hidden}
+.desk-pin{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
 #stage{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero-copy{position:absolute;left:clamp(18px,4vw,48px);top:50%;transform:translateY(-50%);max-width:520px;z-index:2;transition:opacity .3s}
 h1{font:800 clamp(44px,5.4vw,76px)/1 var(--body);letter-spacing:-.04em;margin:0 0 18px}

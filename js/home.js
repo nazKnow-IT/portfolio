@@ -262,7 +262,9 @@
   var island = new THREE.Mesh(screenGeo(.2, .055, .027), new THREE.MeshBasicMaterial({ color: '#05070A' })); island.position.set(0, 1.53, .047); phone.add(island);
   var camBump = new THREE.Mesh(slab(.26, .26, .02, .07, .006, true), new THREE.MeshStandardMaterial({ color: '#2A323D', metalness: .5, roughness: .3 }));
   camBump.position.set(-.2, 1.42, -.052); phone.add(camBump);
-  texture('assets/projects/signspeak-1.jpg', function (t) { phoneMat.map = t; phoneMat.color.set('#fff'); phoneMat.needsUpdate = true; });
+  // on a phone-sized window the camera dives into this phone and the live MyDompet takes
+  // over its screen, so show MyDompet here from the start; elsewhere it shows SignSpeak
+  texture(innerWidth < 760 ? 'assets/projects/mydompet-phone.jpg' : 'assets/projects/signspeak-1.jpg', function (t) { phoneMat.map = t; phoneMat.color.set('#fff'); phoneMat.needsUpdate = true; });
 
   /* ------------------------------------------------ camera shots */
   var WIDE = { pos: new THREE.Vector3(-1.2, 3.4, 8.4), look: new THREE.Vector3(-.6, 1, 0) };
@@ -293,10 +295,14 @@
 
   var mouse = { x: 0, y: 0 };
   addEventListener('pointermove', function (e) { mouse.x = e.clientX / innerWidth - .5; mouse.y = e.clientY / innerHeight - .5; });
+  // size everything from the stage box itself, not the window: on phones the address bar
+  // slides in and out, and the window height then no longer matches the drawn scene
+  var VW = innerWidth, VH = innerHeight;
   function resize() {
     if (!renderer) return;
-    renderer.setSize(innerWidth, innerHeight, false);
-    cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix();
+    VW = canvas.clientWidth || innerWidth; VH = canvas.clientHeight || innerHeight;
+    renderer.setSize(VW, VH, false);
+    cam.aspect = VW / VH; cam.updateProjectionMatrix();
   }
   addEventListener('resize', function () { resize(); pickTarget(); }); resize();
 
@@ -323,7 +329,7 @@
     var minX = 1e9, minY = 1e9, maxX = -1e9, maxY = -1e9;
     corners.forEach(function (c) {
       cv.copy(c).applyMatrix4(target.matrixWorld).project(cam);
-      var x = (cv.x * .5 + .5) * innerWidth, y = (-cv.y * .5 + .5) * innerHeight;
+      var x = (cv.x * .5 + .5) * VW, y = (-cv.y * .5 + .5) * VH;
       minX = Math.min(minX, x); maxX = Math.max(maxX, x); minY = Math.min(minY, y); maxY = Math.max(maxY, y);
     });
     var w = maxX - minX, h = maxY - minY;
@@ -371,6 +377,7 @@
 
   function frame() {
     var t = (performance.now() - t0) / 1000;
+    if (renderer && (canvas.clientWidth !== VW || canvas.clientHeight !== VH)) resize();
     var p = deskProgress();
     var zoom = easeIO(clamp(p / .45, 0, 1));
     var dive = clamp((p - .8) / .2, 0, 1);
