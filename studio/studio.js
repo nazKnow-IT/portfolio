@@ -113,7 +113,11 @@
   function shotFor(s) {
     var c = s.key === 'outside' ? new THREE.Vector3() : center(s.key);
     var pos, look;
-    if (s.key === 'outside') { pos = new THREE.Vector3(31, 25, 41); look = new THREE.Vector3(1, 0, 2); }
+    if (s.key === 'outside') {
+      look = new THREE.Vector3(1, 0, 2);
+      // phones: step further back so the whole building fits above the heading
+      pos = narrow() ? new THREE.Vector3(31, 25, 41).sub(look).multiplyScalar(1.55).add(look) : new THREE.Vector3(31, 25, 41);
+    }
     else if (s.focus != null) {
       var sx = c.x + SCREENS[s.focus].x, sz = c.z - 4.28;
       pos = new THREE.Vector3(sx + 2.6, 4.4, sz + 10); look = new THREE.Vector3(sx, 1.8, sz);
@@ -121,7 +125,7 @@
     // leave room for the panel: on wide screens push the subject right, on phones push it up
     var right = new THREE.Vector3().subVectors(look, pos).cross(new THREE.Vector3(0, 1, 0)).normalize();
     var dist = pos.distanceTo(look);
-    if (narrow()) look.y -= dist * (s.key === 'outside' ? .18 : .2);
+    if (narrow()) look.y -= dist * (s.key === 'outside' ? .3 : .2);
     else look.addScaledVector(right, -dist * (s.key === 'outside' ? .34 : .2));
     return { pos: pos, look: look, c: c };
   }

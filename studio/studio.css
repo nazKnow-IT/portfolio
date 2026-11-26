@@ -106,3 +106,14 @@ main{position:relative;z-index:2}
 .switch a[aria-current="page"]{background:var(--cobalt);color:#fff}
 .top .alt{font-size:14px;font-weight:600;text-decoration:none;color:var(--slate)}
 @media (max-width:900px){ .top .alt{margin-left:auto} }
+/* phones: one tidy row with a soft backdrop, so room signs never collide with it;
+   the classic-version link moves to Mini Mirza in the corner */
+@media (max-width:760px){
+  .top{gap:12px;padding:10px 14px;background:linear-gradient(rgba(251,248,244,.96),rgba(251,248,244,.82));backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(34,38,45,.06)}
+  .mark{font-size:17px;white-space:nowrap}
+  .top .alt{display:none}
+  .cv{font-size:13px;padding:8px 14px;white-space:nowrap}
+  .stats{grid-template-columns:repeat(2,auto);gap:14px 34px}
+  .stats dd{font-size:26px}.stats dt{font-size:12px}
+  .hint{margin-top:18px}
+}

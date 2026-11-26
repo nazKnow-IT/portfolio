@@ -1,5 +1,6 @@
 /* guide.js — "Mini Mirza", a small robot in the bottom-right corner that
-   invites visitors into the 3D studio version (studio/). It works like a chat
+   invites visitors into the other version of the portfolio: the 3D studio from
+   the classic page, and back to the classic page from the studio. It works like a chat
    launcher: tap the robot to open its speech bubble. The bubble also opens by
    itself once per visit, a few seconds in, and stays closed after "Maybe later". */
 (function () {
@@ -9,7 +10,7 @@
   var bot = root.querySelector('.guide-bot');
   var bubble = root.querySelector('.guide-bubble');
   var later = root.querySelector('[data-later]');
-  var KEY = 'mini-mirza-seen';
+  var KEY = root.getAttribute('data-key') || 'mini-mirza-seen'; // one hello per page per visit
 
   function open() {
     bubble.hidden = false;
