@@ -429,7 +429,12 @@
     sections.forEach(function (s) {
       var r = s.getBoundingClientRect();
       if (r.top < innerHeight * .65) s.classList.add('in');
-      if (!reduce && innerWidth >= 760) s.querySelector('.shot').style.transform = 'translateY(' + (r.top * -.18) + 'px) rotate(-2deg)';
+      if (reduce || innerWidth < 760) return;
+      // up to 2000px the big name reaches under the screenshot, so the screenshot sits
+      // below the name (css/home.css) and the parallax may not lift it back over it
+      var y = r.top * -.18;
+      if (innerWidth <= 2000) y = Math.max(y, 0);
+      s.querySelector('.shot').style.transform = 'translateY(' + y + 'px) rotate(-2deg)';
     });
   }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();

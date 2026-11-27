@@ -288,6 +288,11 @@ h2{font:800 clamp(36px,5vw,64px)/1 var(--body);letter-spacing:-.035em;margin:0 0
 /* a demo video must stay fully visible so its controls can be reached */
 .project video.shot{right:clamp(18px,4vw,48px);width:min(52vw,820px);aspect-ratio:16/9;object-fit:cover;background:#0B1220}
 @media (max-width:760px){ .project video.shot{right:auto;width:100%} }
+/* laptop-size screens: the project name is wide enough to reach under the screenshot,
+   so the screenshot starts just below the name instead of covering it */
+@media (min-width:761px) and (max-width:2000px){
+  .project .shot{top:calc(110px + clamp(76px,17vw,250px) * .82 + 60px)}
+}
 
 /* live app: locked until the visitor presses Try, so the page never stops scrolling */
 .live.locked iframe{pointer-events:none;filter:saturate(.85) brightness(.97)}
